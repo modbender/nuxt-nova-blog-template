@@ -1,0 +1,73 @@
+@import "bootstrap/scss/bootstrap";
+
+.markdown-body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: var(--base-text-weight-semibold, 600);
+    line-height: 1.25;
+
+    a {
+      text-decoration: none;
+      color: var(--bs-heading-color);
+
+      &:hover{
+        color: initial;
+      }
+    }
+  }
+
+  h1 {
+    margin: 0.67em 0;
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid var(--bs-dark-border-subtle);
+  }
+
+  h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--bs-dark-border-subtle);
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  h4 {
+    font-size: 1em;
+  }
+
+  h5 {
+    font-size: 0.875em;
+  }
+
+  h6 {
+    font-size: 0.85em;
+    color: var(--color-fg-muted);
+  }
+
+  pre {
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+      Liberation Mono, monospace;
+    font-size: 12px;
+    word-wrap: normal;
+    background-color: var(--bs-dark-border-subtle);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+
+    code {
+      font-size: 100%;
+    }
+  }
+
+  img {
+    margin: 5px;
+  }
+}
