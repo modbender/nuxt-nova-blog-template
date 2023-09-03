@@ -13,14 +13,22 @@
       v-if="!!post.author && !!post.author.name"
     >
       <div class="col-auto">
-        <nuxt-img
+        <!-- <nuxt-img
           preload
+          width="35"
+          height="35"
+          format="webp"
+          class="rounded-circle"
+          :src="post.author.picture"
+          :alt="post.author.name"
+          v-if="!!post.author.picture"
+        /> -->
+        <img
           width="35"
           height="35"
           class="rounded-circle"
           :src="post.author.picture"
           :alt="post.author.name"
-          v-if="!!post.author.picture"
         />
       </div>
       <div class="col">
