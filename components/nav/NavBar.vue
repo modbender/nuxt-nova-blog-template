@@ -22,24 +22,26 @@
               <strong>HOME</strong>
             </NuxtLink>
           </li>
-          <li class="nav-item">
-            <select class="form-select" v-model="$colorMode.preference">
-              <option value="system">System</option>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-            </select>
-          </li>
         </ul>
+        <div class="me-2 mb-2 mb-lg-0">
+          <select class="form-select" v-model="$colorMode.preference">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
         <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-secondary" type="submit">
-            <Icon name="mdi:magnify" />
-          </button>
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-secondary" type="submit">
+              <Icon name="mdi:magnify" />
+            </button>
+          </div>
         </form>
       </div>
     </div>

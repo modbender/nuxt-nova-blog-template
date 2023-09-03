@@ -27,9 +27,9 @@
         <strong>{{ post.author.name }}</strong>
       </div>
     </div>
-    <hr class="mt-5" />
+    <hr class="mt-5 mb-2" />
     <div class="row mx-0 mx-md-5">
-      <div class="col">
+      <div class="col text-center">
         <div class="dropdown">
           <button
             type="button"
@@ -69,9 +69,8 @@
           </ul>
         </div>
       </div>
-      <div class="col"></div>
     </div>
-    <hr class="mb-5" />
+    <hr class="mb-5 mt-2" />
     <article class="markdown-body">
       <ContentRenderer :value="post" />
     </article>
@@ -91,8 +90,9 @@ const { data: post } = await useAsyncData("post", () =>
 );
 
 useSeoMeta({
-  title: post.title,
-  description: post.description,
+  title: post.value.title,
+  description: post.value.description,
+  ogImage: post.value.featuredImage,
 });
 
 const copyLink = () => {

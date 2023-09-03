@@ -11,13 +11,18 @@ export default defineNuxtConfig({
     },
   },
 
+  app: {
+    head: {
+      titleTemplate: "%pageTitle %titleSeparator %siteName",
+    },
+  },
+
   css: ["@/assets/scss/main.scss"],
 
   modules: [
     "@nuxtjs/color-mode",
-    "@nuxt/image",
+    "@nuxt/image-edge",
     "@nuxt/content",
-    "@nuxtjs/mdc",
     "nuxt-disqus",
     "nuxt-icon",
   ],
@@ -25,6 +30,18 @@ export default defineNuxtConfig({
   extends: ["nuxt-seo-kit"],
 
   devtools: { enabled: true },
+
+  image: {
+    domains: [
+      "https://127.0.0.1:3000",
+      "https://localhost:3000",
+      "https://nuxt-nova.netlify.app",
+    ],
+  },
+
+  unhead: {
+    ogTitleTemplate: "%pageTitle %titleSeparator %siteName",
+  },
 
   colorMode: {
     fallback: "dark",
