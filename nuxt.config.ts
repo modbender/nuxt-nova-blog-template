@@ -30,6 +30,14 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  // image: {
+  //   domains: [
+  //     "http://127.0.0.1:3000",
+  //     "http://localhost:3000",
+  //     "https://nuxt-nova.netlify.app",
+  //   ],
+  // },
+
   unhead: {
     ogTitleTemplate: "%pageTitle %titleSeparator %siteName",
   },

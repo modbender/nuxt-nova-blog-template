@@ -1,6 +1,6 @@
 <template>
   <NuxtLink class="card text-decoration-none w-100 h-100" :to="data._path">
-    <!-- <nuxt-img
+    <!-- <NuxtImg
       preload
       format="webp"
       class="card-img-top"

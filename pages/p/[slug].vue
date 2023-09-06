@@ -13,7 +13,7 @@
       v-if="!!post.author && !!post.author.name"
     >
       <div class="col-auto">
-        <!-- <nuxt-img
+        <!-- <NuxtImg
           preload
           width="35"
           height="35"
