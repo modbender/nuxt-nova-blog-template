@@ -16,7 +16,7 @@
       text-decoration: none;
       color: var(--bs-heading-color);
 
-      &:hover{
+      &:hover {
         color: initial;
       }
     }
@@ -57,17 +57,34 @@
       Liberation Mono, monospace;
     font-size: 12px;
     word-wrap: normal;
-    background-color: var(--bs-dark-border-subtle);
+    background-color: var(--bs-black);
+    color: var(--bs-white);
     padding: 15px;
     margin: 15px 0;
     border-radius: 5px;
 
     code {
-      font-size: 100%;
+      font-size: 120%;
     }
   }
 
   img {
     margin: 5px;
   }
+}
+
+.container-post {
+  @extend .container;
+  max-width: 680px;
+}
+
+.featured-container {
+  background-position: center center;
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+}
+
+#disqus_thread {
+  padding: 10px;
 }

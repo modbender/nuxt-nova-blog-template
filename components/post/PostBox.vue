@@ -1,25 +1,25 @@
 <template>
-  <NuxtLink class="card text-decoration-none w-100 h-100" :to="data._path">
+  <NuxtLink class="card text-decoration-none w-100 h-100" :to="post._path">
     <!-- <NuxtImg
       preload
       format="webp"
       class="card-img-top"
-      :src="data.featuredImage"
-      :alt="data.title"
+      :src="post.featuredImage"
+      :alt="post.title"
     /> -->
-    <img class="card-img-top" :src="data.featuredImage" :alt="data.title" />
+    <img class="card-img-top" :src="post.featuredImage" :alt="post.title" />
     <div class="card-body">
       <h5 class="card-title">
-        <strong>{{ data.title }}</strong>
+        <strong>{{ post.title }}</strong>
       </h5>
       <p class="card-text">
-        {{ data.description }}
+        {{ post.description }}
       </p>
     </div>
     <div class="mx-3">
       <span
         class="badge rounded-pill text-bg-primary p-2 mx-1"
-        v-for="tag in data.tags"
+        v-for="tag in post.tags"
         :key="tag"
       >
         {{ tag }}
@@ -34,8 +34,10 @@
 
 <script setup>
 const props = defineProps({
-  data: {
+  post: {
     required: true,
   },
 });
+
+const { post } = props;
 </script>

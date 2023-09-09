@@ -6,7 +6,7 @@
         v-for="post in postList"
         :key="post"
       >
-        <PostBox :data="post" />
+        <PostBox :post="post" />
       </div>
     </div>
   </div>
@@ -15,10 +15,10 @@
 <script setup>
 useSeoMeta({
   title: "Home",
-  description: "Welcome to Nuxt Nova Blog",
+  description: useRuntimeConfig().public.siteDescription,
 });
 
 const { data: postList } = await useAsyncData("postList", () =>
-  queryContent(`/p`).find()
+  queryContent("p").sort({ added_at: -1 }).find()
 );
 </script>

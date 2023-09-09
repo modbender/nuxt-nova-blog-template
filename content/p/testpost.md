@@ -2,7 +2,8 @@
 title: "Disqus for Nuxt 3"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
 featuredImage: "/images/posts/example.png"
-date: "2020-03-16T05:35:07.322Z"
+added_at: "2020-03-16T05:35:07.322Z"
+modified_at: "2020-03-16T05:35:07.322Z"
 author:
   name: Tim Neutkens
   picture: "/images/authors/Tim.png"
@@ -34,7 +35,6 @@ Nuxt Disqus provides a wrapper for [vue3-disqus](https://github.com/modbender/vu
 
 1. Add `nuxt-disqus` dependency to your project
 
-  
    ```bash
    # Using pnpm
    pnpm add -D nuxt-disqus
@@ -70,6 +70,7 @@ Nuxt Disqus provides a wrapper for [vue3-disqus](https://github.com/modbender/vu
    ```
 
    Example Output for `DisqusCount` will be:
+
    ```xml
    99 Comments
    ```

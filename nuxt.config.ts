@@ -7,6 +7,8 @@ export default defineNuxtConfig({
       siteDescription: "Nuxt Nova Blog Template",
       language: "en", // prefer more explicit language codes like `en-AU` over `en`
       titleSeparator: "|",
+
+      postFeaturedImagePlaceholder: "/images/posts/example.png",
     },
   },
 
@@ -20,7 +22,7 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/color-mode",
-    // "@nuxt/image-edge",
+    "@nuxt/image-edge",
     "@nuxt/content",
     "nuxt-disqus",
     "nuxt-icon",
@@ -30,20 +32,25 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  // image: {
-  //   domains: [
-  //     "http://127.0.0.1:3000",
-  //     "http://localhost:3000",
-  //     "https://nuxt-nova.netlify.app",
-  //   ],
-  // },
+  image: {
+    domains: [
+      "http://127.0.0.1:3000",
+      "http://localhost:3000",
+      "https://nuxt-nova.netlify.app",
+    ],
+  },
 
   unhead: {
     ogTitleTemplate: "%pageTitle %titleSeparator %siteName",
   },
 
+  sitemap: {
+    discoverImages: false,
+  },
+
   colorMode: {
-    fallback: "dark",
+    preference: "light",
+    fallback: "light",
     dataValue: "bs-theme",
   },
 
