@@ -1,13 +1,13 @@
 <template>
   <NuxtLink class="card text-decoration-none w-100 h-100" :to="post._path">
-    <!-- <NuxtImg
+    <NuxtImg
       preload
       format="webp"
       class="card-img-top"
       :src="post.featuredImage"
       :alt="post.title"
-    /> -->
-    <img class="card-img-top" :src="post.featuredImage" :alt="post.title" />
+    />
+    <!-- <img class="card-img-top" :src="post.featuredImage" :alt="post.title" /> -->
     <div class="card-body">
       <h5 class="card-title">
         <strong>{{ post.title }}</strong>

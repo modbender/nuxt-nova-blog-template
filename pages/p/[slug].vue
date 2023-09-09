@@ -17,7 +17,7 @@
       v-if="!!post.author && !!post.author.name"
     >
       <div class="col-auto">
-        <!-- <NuxtImg
+        <NuxtImg
           preload
           width="35"
           height="35"
@@ -26,14 +26,14 @@
           :src="post.author.picture"
           :alt="post.author.name"
           v-if="!!post.author.picture"
-        /> -->
-        <img
+        />
+        <!-- <img
           width="35"
           height="35"
           class="rounded-circle"
           :src="post.author.picture"
           :alt="post.author.name"
-        />
+        /> -->
       </div>
       <div class="col">
         <strong>{{ post.author.name }}</strong>
