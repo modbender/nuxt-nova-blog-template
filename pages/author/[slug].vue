@@ -109,6 +109,7 @@
     <div v-else class="p-5 text-center display-6">No posts yet</div>
   </div>
   <div v-if="author.comments !== false" class="container">
+    <hr class="mt-5" />
     <DisqusComments :identifier="url.pathname" />
   </div>
 </template>

@@ -780,7 +780,7 @@
     read-package-json-fast "^3.0.0"
     which "^4.0.0"
 
-"@nuxt/content@^2.8.1":
+"@nuxt/content@^2.8.2":
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/@nuxt/content/-/content-2.8.2.tgz#ceabb2cb9643aef23b8a1fb4640b317b0509b528"
   integrity sha512-fi5/axuYNGccJ/dXyaf5C/WqgEd5wSijpGHZ9O+pH7754S2NeKyx8fUFGfXsLN9VyJP+Mx8EUihfWKJm09SCRA==
@@ -838,7 +838,7 @@
     rc9 "^2.1.1"
     semver "^7.5.4"
 
-"@nuxt/devtools@^0.8.2":
+"@nuxt/devtools@^0.8.3":
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/@nuxt/devtools/-/devtools-0.8.3.tgz#3b81672b283a3e36917f30226034c34735b42084"
   integrity sha512-jkLsLBRb0nf7P46MHqZlvmMhi82oS5PAmmu326L5OH91thYBDyFAK4+L/NOUSResQNcs2t6/qz5i/ls5E/+sqA==
@@ -882,10 +882,10 @@
     which "^3.0.1"
     ws "^8.13.0"
 
-"@nuxt/image-edge@^1.0.0-rc.1-28224985.8423773":
-  version "1.0.0-rc.1-28237811.ae81f77"
-  resolved "https://registry.yarnpkg.com/@nuxt/image-edge/-/image-edge-1.0.0-rc.1-28237811.ae81f77.tgz#df017022b3515b5f1fd90b5e15679d5250f17959"
-  integrity sha512-gWG2isZKVBi3eFWUc1osEQeqtxu8DbibKLw0bdKKkG0tMmnOOOEo2pr6ckD6Cj15TatAnMf4Mvso5tV40AOc+w==
+"@nuxt/image-edge@^1.0.0-rc.1-28240731.2506a71":
+  version "1.0.0-rc.1-28240731.2506a71"
+  resolved "https://registry.yarnpkg.com/@nuxt/image-edge/-/image-edge-1.0.0-rc.1-28240731.2506a71.tgz#730928ba7a9ce8518a995c7261eb30a4ee7d66d6"
+  integrity sha512-EbveFoaUrgJrRszREEzSBKFADVVK7RZoerjckB/LZAyiyzLr1fzTSqilF0AajutAFtHP2GwM3yGxpCwEGgDNFQ==
   dependencies:
     "@nuxt/kit" "^3.7.1"
     consola "^3.2.3"
@@ -1450,7 +1450,7 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node@*":
+"@types/node@*", "@types/node@^20.6.0":
   version "20.6.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.6.0.tgz#9d7daa855d33d4efec8aea88cd66db1c2f0ebe16"
   integrity sha512-najjVq5KN2vsH2U/xyh2opaSEz6cZMR2SetLIlxlj08nOcmPOemJmUK2o4kUzfLqfrWE0PIrNeE16XhYDd3nqg==
@@ -1459,11 +1459,6 @@
   version "17.0.45"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.45.tgz#2c0fafd78705e7a18b7906b5201a522719dc5190"
   integrity sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==
-
-"@types/node@^18.17.3":
-  version "18.17.15"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.17.15.tgz#31301a273b9ca7d568fe6d1c35ae52e0fb3f8d6a"
-  integrity sha512-2yrWpBk32tvV/JAd3HNHWuZn/VDN1P+72hWirHnvsvTGSqbANi+kSeuQR9yAHnbvaBvHDsoTdXV0Fe+iRtHLKA==
 
 "@types/parse5@^6.0.0":
   version "6.0.3"
@@ -5826,10 +5821,10 @@ nuxt-schema-org@^2.2.0:
     "@unhead/schema-org-vue" "^0.6.0"
     pathe "^1.1.0"
 
-nuxt-seo-kit@^1.3.9:
-  version "1.3.12"
-  resolved "https://registry.yarnpkg.com/nuxt-seo-kit/-/nuxt-seo-kit-1.3.12.tgz#ac2f97289a18a1526976ac57e20988726fb7a9c0"
-  integrity sha512-ZjctI0OPFF8x3IYIzuZ5Bbsy1bSBLemTJ2Evoup+nC1U8GBMw9LFeYw//bKWZtxyURyJmlSnQ1Uf8sGirCFdJg==
+nuxt-seo-kit@^1.3.13:
+  version "1.3.13"
+  resolved "https://registry.yarnpkg.com/nuxt-seo-kit/-/nuxt-seo-kit-1.3.13.tgz#c90982f0e966fbb1f7838cee0f2d2b75da1684b2"
+  integrity sha512-aIE6zi249SwDU6HcMUvBFOhtWmrXQYFWVbWkEKCmK2u1/gXHlrbe4MdpGkOL5On04JJ+Xk8SjhgTKUW1O6Vasw==
   dependencies:
     "@nuxt/kit" "^3.7.1"
     defu "^6.1.2"
@@ -5877,7 +5872,7 @@ nuxt-unhead@^1.4.17:
     pathe "^1.1.0"
     unhead "^1.1.26"
 
-nuxt@^3.6.5:
+nuxt@^3.6.5, nuxt@^3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.7.1.tgz#a747b9f6dd61618ac35a9d939483c9895a528a46"
   integrity sha512-y8so6b11dDnuOkjqls3WZToyKODmHFaEYVB/RitjMrkNCez68qGDBFtG+VLaO34I2IdsbugTzByXktEk4dbs9w==
