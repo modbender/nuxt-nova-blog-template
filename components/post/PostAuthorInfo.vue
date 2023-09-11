@@ -6,6 +6,7 @@
           preload
           width="100"
           height="100"
+          quality="80"
           class="rounded-circle"
           :src="author.info?.picture"
           :alt="author.info?.name"
@@ -36,8 +37,8 @@
           :to="author.info.share.youtube"
         >
           <Icon
-            width="35"
-            height="35"
+            width="30"
+            height="30"
             name="mdi:youtube"
             class="mb-1 text-danger"
           />
@@ -49,8 +50,8 @@
           :to="author.info.share.x"
         >
           <Icon
-            width="35"
-            height="35"
+            width="30"
+            height="30"
             name="mdi:twitter"
             class="mb-1 text-info"
           />
@@ -61,7 +62,7 @@
           v-if="!!author.info.share.facebook"
           :to="author.info.share.facebook"
         >
-          <Icon class="mb-1" width="35" height="35" name="mdi:facebook-box" />
+          <Icon class="mb-1" width="30" height="30" name="mdi:facebook-box" />
         </NuxtLink>
         <NuxtLink
           target="_blank"
@@ -70,8 +71,8 @@
           :to="author.info.share.instagram"
         >
           <Icon
-            width="35"
-            height="35"
+            width="30"
+            height="30"
             name="mdi:instagram"
             class="mb-1 text-warning"
           />

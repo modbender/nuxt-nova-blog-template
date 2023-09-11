@@ -34,9 +34,23 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  content: {
+    highlight: {
+      theme: {
+        // Default theme (same as single string)
+        default: "github-light",
+        // Theme used if `html.dark`
+        dark: "github-dark",
+        // Theme used if `html.sepia`
+        sepia: "monokai",
+      },
+    },
+  },
+
   image: {
     // doc: https://image.nuxtjs.org/
-    format: ["avif", "webp"],
+    // You could try format: ["avif", "webp"] for more compression
+    format: ["webp"],
     domains: [
       "http://127.0.0.1:3000",
       "http://localhost:3000",
@@ -44,11 +58,11 @@ export default defineNuxtConfig({
     ],
   },
 
-  "google-adsense": {
-    // options: https://nuxt.com/modules/google-adsense
-    id: "ca-pub-123456789",
-    test: true, // remove or set to false when having approved adsense account id
-  },
+  // "google-adsense": {
+  //   // options: https://nuxt.com/modules/google-adsense
+  //   id: "ca-pub-123456789",
+  //   test: true, // remove or set to false when having approved adsense account id
+  // },
 
   unhead: {
     ogTitleTemplate: "%pageTitle %titleSeparator %siteName",

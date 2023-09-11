@@ -4,26 +4,37 @@
     class="featured-container"
     :style="backgroundStyles"
   ></div>
-  <div class="container-post mx-auto my-5 px-4">
+  <div class="container-post mx-auto my-5 px-md-4">
     <h1 class="mt-3">
       <strong>{{ post.title }}</strong>
     </h1>
-    <hr class="mt-5 mb-2" />
-    <PostShare v-if="post.share !== false" :post="post" />
-    <hr class="mb-5 mt-2" />
+    <template v-if="post.share !== false">
+      <hr class="mt-5 mb-2" />
+      <PostShare :post="post" />
+      <hr class="mb-5 mt-2" />
+    </template>
+    <hr v-else class="my-5 mt-2" />
     <article class="markdown-body">
       <ContentRenderer :value="post" />
     </article>
-    <hr class="mt-5" />
-    <PostShare v-if="post.share !== false" :post="post" />
+    <template v-if="post.share !== false">
+      <hr class="mt-5 mb-2" />
+      <PostShare :post="post" />
+    </template>
     <template v-if="!!post.author && !!authorData">
-      <hr class="mx-2" />
+      <hr
+        class="mb-2"
+        :class="{
+          'mt-2': post.share !== false,
+          'mt-5': !(post.share !== false),
+        }"
+      />
       <PostAuthorInfo :author="authorData" />
     </template>
-    <hr class="mx-2" />
+    <hr class="mb-5 mt-2" />
   </div>
-  <div class="container">
-    <DisqusComments v-if="post.comments !== false" :identifier="url.pathname" />
+  <div v-if="post.comments !== false" class="container">
+    <DisqusComments :identifier="url.pathname" />
   </div>
 </template>
 
@@ -43,7 +54,8 @@ const { data: authorData } = await useAsyncData("authorData", () =>
 
 const backgroundStyles = computed(() => {
   const imgUrl = img(
-    post.featuredImage ?? config.public.postFeaturedImagePlaceholder
+    post.featuredImage ?? config.public.postFeaturedImagePlaceholder,
+    { height: 700, quality: 90 }
   );
   return { backgroundImage: `url('${imgUrl}')` };
 });

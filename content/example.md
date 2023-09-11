@@ -5,9 +5,7 @@ description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei
 featuredImage: "/images/posts/example.jpg"
 added_at: "2020-03-16T05:35:07.322Z"
 modified_at: "2020-03-16T05:35:07.322Z"
-author:
-  name: Tim Neutkens
-  picture: "/images/authors/Tim.jpg"
+author: tim # MD filename under author not including extension
 comments: true
 share: true
 tags:

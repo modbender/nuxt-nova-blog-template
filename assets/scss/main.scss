@@ -1,4 +1,22 @@
 @import "bootstrap/scss/bootstrap"; //doc https://getbootstrap.com/docs/5.3
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  word-break: break-word;
+}
+
 .markdown-body {
   h1,
   h2,
@@ -51,16 +69,25 @@
     color: var(--color-fg-muted);
   }
 
+  p,
+  li {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  p:has(> img) {
+    text-align: center;
+  }
+
   pre {
     font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
       Liberation Mono, monospace;
-    font-size: 12px;
-    word-wrap: normal;
-    background-color: var(--bs-black);
-    color: var(--bs-white);
+    background-color: var(--bs-light-bg-subtle);
+    border-radius: 5px;
     padding: 15px;
     margin: 15px 0;
-    border-radius: 5px;
+    font-size: 12px;
+    word-wrap: normal;
 
     code {
       font-size: 120%;
@@ -68,6 +95,7 @@
   }
 
   img {
+    @extend .img-fluid;
     margin: 5px;
   }
 }

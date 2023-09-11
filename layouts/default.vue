@@ -1,7 +1,9 @@
 <template>
   <NavBar :navIndex="navIndex.pages" />
-  <slot />
-  <Footer />
+  <main>
+    <slot />
+  </main>
+  <LayoutFooter />
 </template>
 
 <script setup>

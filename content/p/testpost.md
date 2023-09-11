@@ -1,11 +1,12 @@
 ---
 title: "Disqus for Nuxt 3"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
+description: "Instantly add Disqus Comments to your posts or pages using this package designed to work perfectly with Nuxt 3."
 featuredImage: "/images/posts/example.jpg"
 added_at: "2020-03-16T05:35:07.322Z"
 modified_at: "2020-03-16T05:35:07.322Z"
 author: tim
 comments: true
+share: true
 tags:
   - Home
   - Page
@@ -19,10 +20,6 @@ tags:
 Instantly add Disqus Comments to your posts or pages using this package designed to work perfectly with Nuxt 3.
 
 Nuxt Disqus provides a wrapper for [vue3-disqus](https://github.com/modbender/vue3-disqus) to be used with Nuxt 3
-
-<!-- - [✨ &nbsp;Release Notes](/CHANGELOG.md) -->
-  <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt-disqus?file=playground%2Fapp.vue) -->
-  <!-- - [📖 &nbsp;Documentation](https://example.com) -->
 
 ## Features
 

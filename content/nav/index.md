@@ -1,4 +1,4 @@
 ---
 pages:
-  ABOUT: about
+  ABOUT: about # page markdown file name, not including extension.
 ---

@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto my-5 px-4">
-    <div class="row">
+    <div v-if="!!postList && postList.length > 0" class="row">
       <div
         class="col-12 col-md-6 col-lg-4 my-2"
         v-for="post in postList"
@@ -9,6 +9,7 @@
         <PostBox :post="post" />
       </div>
     </div>
+    <div v-else class="p-5 text-center display-4">Add posts to show here</div>
   </div>
 </template>
 

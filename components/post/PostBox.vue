@@ -2,7 +2,9 @@
   <NuxtLink class="card text-decoration-none w-100 h-100" :to="post._path">
     <NuxtImg
       preload
-      format="webp"
+      width="350"
+      height="175"
+      quality="75"
       class="card-img-top"
       :src="post.featuredImage"
       :alt="post.title"
@@ -15,7 +17,7 @@
         <Icon name="mdi:clock-outline" class="me-1 mb-1" />
         <TimeAgo :dt="post.added_at" />
       </div>
-      <div class="my-1">
+      <div v-if="!!post.tags && post.tags.length > 0" class="my-1">
         <span
           class="badge text-bg-primary p-2 me-2"
           v-for="tag in post.tags.slice(0, 2)"
