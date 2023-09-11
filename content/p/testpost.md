@@ -12,11 +12,6 @@ tags:
   - Page
 ---
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![License][license-src]][license-href]
-[![Nuxt][nuxt-src]][nuxt-href]
-
 Instantly add Disqus Comments to your posts or pages using this package designed to work perfectly with Nuxt 3.
 
 Nuxt Disqus provides a wrapper for [vue3-disqus](https://github.com/modbender/vue3-disqus) to be used with Nuxt 3
