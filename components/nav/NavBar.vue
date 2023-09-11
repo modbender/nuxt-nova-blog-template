@@ -18,12 +18,27 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <NuxtLink class="nav-link active" aria-current="page" to="/">
-              <strong>HOME</strong>
+            <NuxtLink
+              class="nav-link"
+              :class="{ active: $route.path === '/' }"
+              aria-current="page"
+              to="/"
+            >
+              HOME
+            </NuxtLink>
+          </li>
+          <li class="nav-item" v-for="(key, value) in navIndex" :key="key">
+            <NuxtLink
+              class="nav-link"
+              :class="{ active: $route.path === `/nav/${key}` }"
+              aria-current="page"
+              :to="`/nav/${key}`"
+            >
+              {{ value }}
             </NuxtLink>
           </li>
         </ul>
-        <!-- <div class="me-2 mb-2 mb-lg-0">
+        <!-- <div class="me-2 mb-2 mb-lg-0"> Dark Mode Switch - TBD
           <select class="form-select" v-model="$colorMode.preference">
             <option value="system">System</option>
             <option value="light">Light</option>
@@ -36,4 +51,12 @@
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps({
+  navIndex: {
+    required: false,
+  },
+});
+
+const { navIndex } = props;
+</script>

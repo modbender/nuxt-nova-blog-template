@@ -1,12 +1,10 @@
 ---
 title: "Disqus for Nuxt 3"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
-featuredImage: "/images/posts/example.png"
+featuredImage: "/images/posts/example.jpg"
 added_at: "2020-03-16T05:35:07.322Z"
 modified_at: "2020-03-16T05:35:07.322Z"
-author:
-  name: Tim Neutkens
-  picture: "/images/authors/Tim.png"
+author: tim
 comments: true
 tags:
   - Home

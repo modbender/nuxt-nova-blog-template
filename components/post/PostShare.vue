@@ -25,7 +25,7 @@
               :href="`https://twitter.com/share?url=${urlNoQuery}&text=${post.title}`"
             >
               <Icon name="mdi:twitter" />
-              Twitter
+              Tweet
             </a>
           </li>
           <li>

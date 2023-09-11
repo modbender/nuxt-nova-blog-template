@@ -19,6 +19,6 @@ useSeoMeta({
 });
 
 const { data: postList } = await useAsyncData("postList", () =>
-  queryContent("p").sort({ added_at: -1 }).find()
+  queryContent("p").where({ _draft: false }).sort({ added_at: -1 }).find()
 );
 </script>
