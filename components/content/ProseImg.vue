@@ -1,3 +1,3 @@
 <template>
-  <NuxtImg v-bind="$attrs" />
+  <NuxtImg format="webp" v-bind="$attrs" />
 </template>

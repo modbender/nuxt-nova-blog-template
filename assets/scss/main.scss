@@ -1,6 +1,7 @@
 @import "bootstrap/scss/bootstrap"; //doc https://getbootstrap.com/docs/5.3
 
-body {
+body,
+#__nuxt {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -15,6 +16,12 @@ h6,
 p,
 li {
   word-break: break-word;
+}
+
+.navbar {
+  .nav-link {
+    font-weight: 600;
+  }
 }
 
 .markdown-body {

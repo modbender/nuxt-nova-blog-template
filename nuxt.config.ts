@@ -9,6 +9,13 @@ export default defineNuxtConfig({
       titleSeparator: "|", // Best options: | or -
 
       postFeaturedImagePlaceholder: "/images/posts/example.jpg",
+
+      shareLinks: {
+        youtube: "#",
+        x: "#",
+        facebook: "#",
+        instagram: "#",
+      },
     },
   },
 

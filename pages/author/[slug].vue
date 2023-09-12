@@ -11,6 +11,7 @@
         width="250"
         height="250"
         quality="85"
+        format="webp"
         class="rounded-circle"
         v-if="!!author.info.picture"
         :src="author.info.picture"
@@ -133,7 +134,8 @@ const { data: authorPosts } = await useAsyncData("postList", () =>
 
 const backgroundStyles = computed(() => {
   const imgUrl = img(
-    author.featuredImage ?? config.public.postFeaturedImagePlaceholder
+    author.featuredImage ?? config.public.postFeaturedImagePlaceholder,
+    { format: "webp" }
   );
   return { backgroundImage: `url('${imgUrl}')` };
 });

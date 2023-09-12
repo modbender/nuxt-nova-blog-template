@@ -5,6 +5,7 @@
       width="350"
       height="175"
       quality="75"
+      format="webp"
       class="card-img-top"
       :src="post.featuredImage"
       :alt="post.title"
