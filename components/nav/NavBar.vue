@@ -11,7 +11,7 @@
         data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
-        aria-label="Toggle navigation"
+        aria-label="Toggle navbar"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,7 +45,9 @@
             <option value="dark">Dark</option>
           </select>
         </div> -->
-        <NavSearch />
+        <ul class="navbar-nav ms-md-auto mb-2 mb-lg-0">
+          <NavSearch />
+        </ul>
       </div>
     </nav>
   </header>

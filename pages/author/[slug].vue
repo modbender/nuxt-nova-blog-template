@@ -26,6 +26,7 @@
           <div class="mb-2">
             <NuxtLink
               target="_blank"
+              aria-label="Go to Author's Youtube Link"
               class="me-2 text-decoration-none"
               v-if="!!author.info.share.youtube"
               :to="author.info.share.youtube"
@@ -39,6 +40,7 @@
             </NuxtLink>
             <NuxtLink
               target="_blank"
+              aria-label="Go to Author's X Link"
               class="me-2 text-decoration-none"
               v-if="!!author.info.share.x"
               :to="author.info.share.x"
@@ -52,6 +54,7 @@
             </NuxtLink>
             <NuxtLink
               target="_blank"
+              aria-label="Go to Author's Facebook Link"
               class="me-2 text-decoration-none"
               v-if="!!author.info.share.facebook"
               :to="author.info.share.facebook"
@@ -65,6 +68,7 @@
             </NuxtLink>
             <NuxtLink
               target="_blank"
+              aria-label="Go to Author's Instagram Link"
               class="me-2 text-decoration-none"
               v-if="!!author.info.share.instagram"
               :to="author.info.share.instagram"
@@ -81,6 +85,7 @@
             <NuxtLink
               target="_blank"
               class="me-2 text-decoration-none"
+              :aria-label="`Go to Author's ${customName} Link`"
               v-for="(customLink, customName, i) in author.info.share.custom"
               :to="customLink"
               :key="i"

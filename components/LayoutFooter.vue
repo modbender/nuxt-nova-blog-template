@@ -9,8 +9,9 @@
           <li class="ms-3">
             <NuxtLink
               class="text-danger"
-              target="_blank"
+              aria-label="Go to Youtube Link"
               :href="$config.public.shareLinks?.youtube ?? '#'"
+              target="_blank"
             >
               <Icon width="24" height="24" name="mdi:youtube" />
             </NuxtLink>
@@ -18,16 +19,18 @@
           <li class="ms-3">
             <NuxtLink
               class="text-info"
-              target="_blank"
+              aria-label="Go to X Link"
               :href="$config.public.shareLinks?.x ?? '#'"
+              target="_blank"
             >
               <Icon width="24" height="24" name="mdi:twitter" />
             </NuxtLink>
           </li>
           <li class="ms-3">
             <NuxtLink
-              target="_blank"
+              aria-label="Go to Facebook Link"
               :href="$config.public.shareLinks?.facebook ?? '#'"
+              target="_blank"
             >
               <Icon width="24" height="24" name="mdi:facebook" />
             </NuxtLink>
@@ -35,8 +38,9 @@
           <li class="ms-3">
             <NuxtLink
               class="text-warning"
-              target="_blank"
+              aria-label="Go to Instagram Link"
               :href="$config.public.shareLinks?.instagram ?? '#'"
+              target="_blank"
             >
               <Icon width="24" height="24" name="mdi:instagram" />
             </NuxtLink>

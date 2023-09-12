@@ -5,6 +5,15 @@
     :style="backgroundStyles"
   ></div>
   <div class="container-post mx-auto my-5 px-md-4">
+    <h5 v-if="!!post.tags && post.tags.length > 0" class="mb-3">
+      <span
+        class="badge badge-lg bg-dark p-2 me-2"
+        v-for="tag in post.tags.slice(0, 2)"
+        :key="tag"
+      >
+        {{ tag }}
+      </span>
+    </h5>
     <h1 class="mt-3">
       <strong>{{ post.title }}</strong>
     </h1>

@@ -1,6 +1,7 @@
 <template>
-  <ul class="navbar-nav ms-md-auto mb-2 mb-lg-0">
+  <li class="nav-item">
     <button
+      aria-label="Open Search Box"
       class="nav-link py-2 px-0 px-lg-2"
       data-bs-target="#searchModal"
       data-bs-toggle="modal"
@@ -9,7 +10,7 @@
       <Icon width="20px" height="20px" name="mdi:magnify" class="mb-md-1" />
       Search
     </button>
-  </ul>
+  </li>
   <ClientOnly>
     <div
       class="modal fade"

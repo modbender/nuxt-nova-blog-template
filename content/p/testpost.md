@@ -2,14 +2,14 @@
 title: "Disqus for Nuxt 3"
 description: "Instantly add Disqus Comments to your posts or pages using this package designed to work perfectly with Nuxt 3."
 featuredImage: "/images/posts/example.jpg"
-added_at: "2020-03-16T05:35:07.322Z"
-modified_at: "2020-03-16T05:35:07.322Z"
+added_at: "2023-09-10T05:35:07.322Z"
+modified_at: "2023-09-10T05:35:07.322Z"
 author: tim
 comments: true
 share: true
 tags:
-  - Home
-  - Page
+  - Test Post
+  - Testing
 ---
 
 Instantly add Disqus Comments to your posts or pages using this package designed to work perfectly with Nuxt 3.

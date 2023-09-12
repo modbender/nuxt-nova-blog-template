@@ -4,6 +4,7 @@
     <slot />
   </main>
   <LayoutFooter />
+  <NuxtLoadingIndicator />
 </template>
 
 <script setup>
