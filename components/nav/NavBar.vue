@@ -4,7 +4,9 @@
       <NuxtLink class="navbar-brand" to="/">
         {{ $config.public.siteName }}
       </NuxtLink>
-      <div class="d-flex d-md-none flex-row justify-content-center ms-auto me-2">
+      <div
+        class="d-flex d-md-none flex-row justify-content-center ms-auto me-2"
+      >
         <button
           aria-label="Open Search Box"
           class="nav-link p-2"
@@ -68,12 +70,7 @@
               data-bs-target="#searchModal"
               data-bs-toggle="modal"
             >
-              <Icon
-                width="20px"
-                height="20px"
-                name="mdi:magnify"
-                class="mb-md-1"
-              />
+              <Icon width="25" height="25" name="mdi:magnify" class="mb-md-1" />
             </button>
           </li>
           <li class="nav-item">
@@ -83,8 +80,8 @@
               @click="toggleColorMode"
             >
               <Icon
-                width="20px"
-                height="20px"
+                width="25"
+                height="25"
                 :name="currentModeIcon"
                 class="mb-md-1"
               />
