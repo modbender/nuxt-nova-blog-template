@@ -5,6 +5,7 @@
   </main>
   <LayoutFooter />
   <NuxtLoadingIndicator />
+  <NavSearch />
 </template>
 
 <script setup>

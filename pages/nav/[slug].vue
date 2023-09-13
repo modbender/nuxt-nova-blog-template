@@ -13,7 +13,7 @@
     <article class="markdown-body">
       <ContentRenderer :value="navPage" />
     </article>
-    <hr class="my-5" />
+    <hr v-if="navPage.comments !== false" class="my-5" />
   </div>
   <div v-if="navPage.comments !== false" class="container">
     <DisqusComments :identifier="url.pathname" />

@@ -120,28 +120,39 @@ li {
   width: 100%;
 }
 
-#disqus_thread {
-  padding: 10px;
-}
-
-.post-box {
+%box-transitions {
   -webkit-transition: -webkit-transform 250ms ease, box-shadow 250ms ease,
     color 250ms ease;
   -webkit-transition: transform 250ms ease, box-shadow 250ms ease,
     color 250ms ease;
   transition: transform 250ms ease, box-shadow 250ms ease, color 250ms ease;
+}
+
+%box-hover {
+  -webkit-transform: translateY(-0.25rem);
+  -ms-transform: translateY(-0.25rem);
+  transform: translateY(-0.25rem);
+  box-shadow: 0px 2px 4px rgba(46, 41, 51, 0.08),
+    0px 5px 10px rgba(71, 63, 79, 0.16);
+}
+
+.post-box {
+  @extend %box-transitions;
+  position: relative;
 
   &:hover {
-    -webkit-transform: translateY(-0.25rem);
-    -ms-transform: translateY(-0.25rem);
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 2px 4px rgba(46, 41, 51, 0.08),
-      0px 5px 10px rgba(71, 63, 79, 0.16);
+    @extend %box-hover;
+
+    .card-img-top {
+      @extend %box-hover;
+    }
   }
 
-  .card-img-top{
-    object-fit: cover;
+  .card-img-top {
     @extend .p-2;
+    object-fit: cover;
     border-radius: 15px;
+
+    @extend %box-transitions;
   }
 }

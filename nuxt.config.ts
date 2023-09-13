@@ -77,9 +77,10 @@ export default defineNuxtConfig({
 
   colorMode: {
     // doc: https://color-mode.nuxtjs.org/
-    preference: "light",
+    preference: "dark",
     fallback: "light",
     dataValue: "bs-theme",
+    classSuffix: "",
   },
 
   disqus: {

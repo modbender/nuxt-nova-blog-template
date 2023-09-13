@@ -4,6 +4,28 @@
       <NuxtLink class="navbar-brand" to="/">
         {{ $config.public.siteName }}
       </NuxtLink>
+      <div class="d-flex d-md-none flex-row justify-content-center ms-auto me-2">
+        <button
+          aria-label="Open Search Box"
+          class="nav-link p-2"
+          data-bs-target="#searchModal"
+          data-bs-toggle="modal"
+        >
+          <Icon width="30" height="30" name="mdi:magnify" class="mb-md-1" />
+        </button>
+        <button
+          aria-label="Toggle Dark Mode"
+          class="nav-link p-2"
+          @click="toggleColorMode"
+        >
+          <Icon
+            width="30"
+            height="30"
+            :name="currentModeIcon"
+            class="mb-md-1"
+          />
+        </button>
+      </div>
       <button
         type="button"
         class="navbar-toggler"
@@ -38,15 +60,36 @@
             </NuxtLink>
           </li>
         </ul>
-        <!-- <div class="me-2 mb-2 mb-lg-0"> Dark Mode Switch - TBD
-          <select class="form-select" v-model="$colorMode.preference">
-            <option value="system">System</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
-        </div> -->
-        <ul class="navbar-nav ms-md-auto mb-2 mb-lg-0">
-          <NavSearch />
+        <ul class="navbar-nav ms-md-auto d-none d-md-flex mb-lg-0">
+          <li class="nav-item">
+            <button
+              aria-label="Open Search Box"
+              class="nav-link py-2 px-0 px-lg-2"
+              data-bs-target="#searchModal"
+              data-bs-toggle="modal"
+            >
+              <Icon
+                width="20px"
+                height="20px"
+                name="mdi:magnify"
+                class="mb-md-1"
+              />
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              aria-label="Toggle Dark Mode"
+              class="nav-link py-2 px-0 px-lg-2"
+              @click="toggleColorMode"
+            >
+              <Icon
+                width="20px"
+                height="20px"
+                :name="currentModeIcon"
+                class="mb-md-1"
+              />
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -54,6 +97,8 @@
 </template>
 
 <script setup>
+const config = useRuntimeConfig();
+
 const props = defineProps({
   navIndex: {
     required: false,
@@ -61,4 +106,17 @@ const props = defineProps({
 });
 
 const { navIndex } = props;
+const colorMode = useColorMode();
+
+const colorModeIcons = {
+  system: "mdi:theme-light-dark",
+  light: "mdi:white-balance-sunny",
+  dark: "mdi:weather-night",
+};
+
+const currentModeIcon = computed(() => colorModeIcons[colorMode.preference]);
+
+const toggleColorMode = () => {
+  colorMode.preference = colorMode.preference === "dark" ? "light" : "dark";
+};
 </script>

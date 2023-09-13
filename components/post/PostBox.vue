@@ -16,7 +16,7 @@
     <div class="card-body">
       <div v-if="!!post.tags && post.tags.length > 0" class="mb-3">
         <span
-          class="badge bg-dark p-2 me-2"
+          class="badge bg-secondary p-2 me-2"
           v-for="tag in post.tags.slice(0, 2)"
           :key="tag"
         >
