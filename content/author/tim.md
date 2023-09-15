@@ -5,7 +5,7 @@ info:
   name: "Tim Neutkens"
   picture: "/images/authors/Tim.jpg"
   bio: "Tim Neutkens is a prolific writer and thought leader in the world of technology and software development. With a passion for all things code-related, Tim has dedicated his career to exploring the frontiers of innovation in the digital realm." # A very short description
-  share:
+  shareLinks:
     youtube: "#"
     x: "#"
     facebook: "#"

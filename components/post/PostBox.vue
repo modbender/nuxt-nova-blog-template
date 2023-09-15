@@ -16,7 +16,7 @@
     <div class="card-body">
       <div v-if="!!post.tags && post.tags.length > 0" class="mb-3">
         <span
-          class="badge bg-secondary p-2 me-2"
+          class="badge text-black bg-warning p-2 me-2"
           v-for="tag in post.tags.slice(0, 2)"
           :key="tag"
         >
@@ -32,7 +32,7 @@
       </p>
     </div>
     <div class="card-body row">
-      <div class="col text-secondary">
+      <div class="col text-info-emphasis">
         <Icon name="mdi:clock-outline" class="me-1 mb-1" />
         <TimeAgo :dt="post.added_at" />
       </div>

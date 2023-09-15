@@ -7,7 +7,7 @@
   <div class="container-post mx-auto my-5 px-md-4">
     <h5 v-if="!!post.tags && post.tags.length > 0" class="mb-3">
       <span
-        class="badge badge-lg bg-secondary p-2 me-2"
+        class="badge badge-lg text-black bg-warning p-2 me-2"
         v-for="tag in post.tags.slice(0, 2)"
         :key="tag"
       >
