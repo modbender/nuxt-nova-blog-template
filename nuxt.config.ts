@@ -19,6 +19,11 @@ export default defineNuxtConfig({
     },
   },
 
+  routeRules: {
+    // Homepage pre-rendered at build time
+    '/**': { isr: true },
+  },
+
   app: {
     head: {
       titleTemplate: "%pageTitle %titleSeparator %siteName",
