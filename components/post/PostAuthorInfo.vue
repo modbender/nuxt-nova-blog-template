@@ -17,12 +17,13 @@
     </div>
 
     <div class="col">
-      <div class="flex flex-column">
+      <div class="flex flex-column mb-2">
         <NuxtLink
-          class="h3 text-decoration-none text-primary"
+          class="h4 text-decoration-none text-body-emphasis"
           :to="author._path"
         >
-          {{ author.info.name }}
+        <Icon class="me-1 mb-1" name="mdi:link-variant" />
+          <strong>{{ author.info.name }}</strong>
         </NuxtLink>
       </div>
       <p v-if="!!author.info?.bio">
