@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // Homepage pre-rendered at build time
+    // All pages on ISR - cached until next build clears it
     '/**': { isr: true },
   },
 
@@ -50,9 +50,9 @@ export default defineNuxtConfig({
     highlight: {
       theme: {
         // Default theme (same as single string)
-        default: "github-light",
+        default: "light-plus",
         // Theme used if `html.dark`
-        dark: "github-dark",
+        dark: "dark-plus",
         // Theme used if `html.sepia`
         sepia: "monokai",
       },

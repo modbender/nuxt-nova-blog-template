@@ -5,6 +5,15 @@
     :style="backgroundStyles"
   ></div>
   <div class="container-post mx-auto my-5 px-md-4">
+    <NuxtImg
+      preload
+      height="700"
+      quality="80"
+      format="webp"
+      class="img-fluid d-block d-md-none mb-5"
+      :src="post.featuredImage"
+      :alt="post.title"
+    />
     <h5 v-if="!!post.tags && post.tags.length > 0" class="mb-3">
       <span
         class="badge badge-lg text-black bg-warning p-2 me-2"

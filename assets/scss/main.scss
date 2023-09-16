@@ -33,6 +33,8 @@ li {
 }
 
 .featured-container {
+  @extend .d-none;
+  @extend .d-md-block;
   background-position: center center;
   background-size: cover;
   height: 400px;
