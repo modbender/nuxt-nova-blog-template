@@ -22,5 +22,5 @@ const { dt, pretty } = toRefs(props);
 
 const formattedDate = useTimeAgo(new Date(dt.value));
 
-const prettyDate = useDateFormat(new Date(dt.value), "MMM DD YYYY");
+const prettyDate = useDateFormat(new Date(dt.value), "MMMM DD YYYY");
 </script>

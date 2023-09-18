@@ -17,6 +17,7 @@
           <li class="page-item">
             <button
               class="page-link"
+              :aria-label="`Go To Page ${item.page}`"
               :class="{
                 active: item.selected,
               }"
@@ -28,14 +29,22 @@
         </template>
         <template v-else-if="item.type === 'previous'">
           <li class="page-item">
-            <button class="page-link" @click="item.onClick">
+            <button
+              class="page-link"
+              aria-label="Previous Page"
+              @click="item.onClick"
+            >
               <Icon name="mdi:chevron-left" />
             </button>
           </li>
         </template>
         <template v-else-if="item.type === 'next'">
           <li class="page-item">
-            <button class="page-link" @click="item.onClick">
+            <button
+              class="page-link"
+              aria-label="Next Page"
+              @click="item.onClick"
+            >
               <Icon name="mdi:chevron-right" />
             </button>
           </li>

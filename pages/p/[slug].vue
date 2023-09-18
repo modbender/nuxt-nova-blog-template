@@ -7,6 +7,7 @@
   <div class="container-post mx-auto my-5 px-md-4">
     <NuxtImg
       preload
+      width="600"
       quality="80"
       format="webp"
       sizes="100vw sm:340px md:600px"
@@ -19,7 +20,7 @@
     <h1 class="mb-4">
       <strong>{{ post.title }}</strong>
     </h1>
-    <h5 v-if="!!post.tags && post.tags.length > 0">
+    <div class="h5" v-if="!!post.tags && post.tags.length > 0">
       <span
         class="badge badge-lg text-black bg-warning p-2 me-2 mb-2"
         v-for="tag in post.tags.slice(0, 2)"
@@ -27,11 +28,15 @@
       >
         {{ tag }}
       </span>
-    </h5>
+    </div>
     <div class="row">
       <div class="col text-secondary-emphasis">
-        <strong>
-          <TimeAgo :pretty="true" :dt="post.added_at" />
+        <strong v-if="post.added_at === post.modified_at">
+          <TimeAgo :dt="post.added_at" :pretty="true" />
+        </strong>
+        <strong v-else>
+          Last updated on
+          <TimeAgo :dt="post.modified_at" :pretty="true" />
         </strong>
       </div>
       <div class="col text-end text-secondary-emphasis">
@@ -74,7 +79,7 @@ const route = useRoute();
 const url = useRequestURL();
 const config = useRuntimeConfig();
 
-const { data: post } = await useAsyncData("post", () =>
+const { data: post } = await useAsyncData(`post-${route.params.slug}`, () =>
   queryContent(`/p/${route.params.slug}`).findOne()
 );
 
@@ -91,9 +96,28 @@ const backgroundStyles = computed(() => {
   return { backgroundImage: `url('${imgUrl}')` };
 });
 
-useSeoMeta({
+const metaData = {
   title: post.value.title,
   description: post.value.description ?? config.public.siteDescription,
+
   ogImage: post.value.featuredImage,
+  ogImageAlt: post.value.title,
+  twitterCard: "summary_large_image",
+
+  articlePublishedTime: post.value.added_at,
+  articleModifiedTime: post.value.modified_at,
+
+  articleTag: post.value.tags?.length > 0 ? post.value.tags : [],
+};
+
+const authorMetaData = !!authorData
+  ? {
+      articleAuthor: authorData.value.info.name,
+    }
+  : {};
+
+useSeoMeta({
+  ...metaData,
+  ...authorMetaData,
 });
 </script>
