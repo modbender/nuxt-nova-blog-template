@@ -4,7 +4,7 @@ description: "Explore the power of Nuxt Content for managing content in your Nux
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-08T11:25:30.152Z"
 modified_at: "2023-09-08T11:25:30.152Z"
-author: emma
+author: tim
 comments: true
 share: true
 tags:

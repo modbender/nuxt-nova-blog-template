@@ -4,7 +4,7 @@ description: "Learn how to use middleware in Nuxt 3 to handle route-specific log
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-03T10:20:30.511Z"
 modified_at: "2023-09-03T10:20:30.511Z"
-author: michael
+author: tim
 comments: true
 share: true
 tags:

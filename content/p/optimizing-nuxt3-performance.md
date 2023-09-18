@@ -4,7 +4,7 @@ description: "Discover tips and techniques to improve the performance of your Nu
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-16T11:35:30.819Z"
 modified_at: "2023-09-16T11:35:30.819Z"
-author: jessica
+author: tim
 comments: true
 share: true
 tags:

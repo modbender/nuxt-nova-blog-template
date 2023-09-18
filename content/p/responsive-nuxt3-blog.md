@@ -4,7 +4,7 @@ description: "Create a fully responsive blog using Nuxt 3 to provide an optimal 
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-09T09:15:22.587Z"
 modified_at: "2023-09-09T09:15:22.587Z"
-author: sarah
+author: tim
 comments: true
 share: true
 tags:

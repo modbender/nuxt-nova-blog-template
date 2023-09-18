@@ -4,7 +4,7 @@ description: "Explore how to efficiently manage the state of your Nuxt 3 applica
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-05T15:12:40.924Z"
 modified_at: "2023-10-05T15:12:40.924Z"
-author: david
+author: tim
 comments: true
 share: true
 tags:

@@ -4,7 +4,7 @@ description: "Explore the latest features and improvements in Nuxt 3 compared to
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-08T09:30:18.511Z"
 modified_at: "2023-09-08T09:30:18.511Z"
-author: laura
+author: tim
 comments: true
 share: true
 tags:

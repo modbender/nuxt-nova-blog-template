@@ -4,7 +4,7 @@ description: "Build a simple yet feature-rich blog using Markdown content with N
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-08-25T13:55:05.218Z"
 modified_at: "2023-08-25T13:55:05.218Z"
-author: lisa
+author: tim
 comments: true
 share: true
 tags:

@@ -4,7 +4,7 @@ description: "Explore the seamless integration of Nuxt 3 and Tailwind CSS for ra
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-05T09:45:18.622Z"
 modified_at: "2023-09-05T09:45:18.622Z"
-author: ben
+author: tim
 comments: true
 share: true
 tags:

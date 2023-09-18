@@ -4,7 +4,7 @@ description: "Create a blog with excellent SEO using Nuxt 3 and Contentful CMS t
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-18T06:55:30.811Z"
 modified_at: "2023-09-18T06:55:30.811Z"
-author: lucas
+author: tim
 comments: true
 share: true
 tags:

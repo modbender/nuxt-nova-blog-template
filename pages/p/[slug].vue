@@ -78,8 +78,9 @@ const { data: post } = await useAsyncData("post", () =>
   queryContent(`/p/${route.params.slug}`).findOne()
 );
 
-const { data: authorData } = await useAsyncData("authorData", () =>
-  queryContent(`/author/${post.value.author}`).findOne()
+const { data: authorData } = await useAsyncData(
+  `author-post-${post.value.author}`,
+  () => queryContent(`/author/${post.value.author}`).findOne()
 );
 
 const backgroundStyles = computed(() => {

@@ -4,7 +4,7 @@ description: "Learn how to create dynamic routes and pages in your Nuxt 3 applic
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-12T14:20:55.926Z"
 modified_at: "2023-09-12T14:20:55.926Z"
-author: kevin
+author: tim
 comments: true
 share: true
 tags:

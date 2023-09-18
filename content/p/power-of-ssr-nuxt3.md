@@ -4,7 +4,7 @@ description: "Learn how server-side rendering in Nuxt 3 can improve SEO, perform
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-11T10:45:30.731Z"
 modified_at: "2023-09-11T10:45:30.731Z"
-author: emily
+author: tim
 comments: true
 share: true
 tags:

@@ -4,7 +4,7 @@ description: "Learn SEO best practices for Nuxt 3 to improve your blog's search 
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-15T14:40:12.821Z"
 modified_at: "2023-09-15T14:40:12.821Z"
-author: john
+author: tim
 comments: true
 share: true
 tags:

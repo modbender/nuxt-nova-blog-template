@@ -4,7 +4,7 @@ description: "Create a feature-rich e-commerce website using Nuxt 3 for a seamle
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-05T14:30:20.726Z"
 modified_at: "2023-09-05T14:30:20.726Z"
-author: grace
+author: tim
 comments: true
 share: true
 tags:

@@ -4,7 +4,7 @@ description: "Discover best practices for enhancing the security of your Nuxt 3 
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-08T13:20:55.410Z"
 modified_at: "2023-09-08T13:20:55.410Z"
-author: alex
+author: tim
 comments: true
 share: true
 tags:

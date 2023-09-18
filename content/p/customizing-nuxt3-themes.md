@@ -4,7 +4,7 @@ description: "Explore different ways to customize Nuxt 3 themes to match your br
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-05T08:55:17.742Z"
 modified_at: "2023-09-05T08:55:17.742Z"
-author: olivia
+author: tim
 comments: true
 share: true
 tags:

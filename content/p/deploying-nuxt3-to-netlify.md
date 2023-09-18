@@ -4,7 +4,7 @@ description: "Learn how to deploy your Nuxt 3 application to Netlify for seamles
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-02T17:08:45.963Z"
 modified_at: "2023-09-02T17:08:45.963Z"
-author: mike
+author: tim
 comments: true
 share: true
 tags:

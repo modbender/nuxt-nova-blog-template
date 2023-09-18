@@ -4,7 +4,7 @@ description: "Learn how to implement user authentication in your Nuxt 3 app usin
 featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-07-15T11:40:55.614Z"
 modified_at: "2023-07-15T11:40:55.614Z"
-author: olivia
+author: tim
 comments: true
 share: true
 tags:
