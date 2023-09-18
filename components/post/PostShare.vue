@@ -50,7 +50,7 @@ const props = defineProps({
   },
 });
 
-const { post } = props;
+const { post } = toRefs(props);
 
 const url = useRequestURL();
 

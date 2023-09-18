@@ -94,15 +94,13 @@
 </template>
 
 <script setup>
-const config = useRuntimeConfig();
-
 const props = defineProps({
   navIndex: {
     required: false,
   },
 });
 
-const { navIndex } = props;
+const { navIndex } = toRefs(props);
 const colorMode = useColorMode();
 
 const colorModeIcons = {

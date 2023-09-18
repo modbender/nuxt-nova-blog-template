@@ -140,7 +140,7 @@ const { data: authorPosts } = await useAsyncData("postList", () =>
 
 const backgroundStyles = computed(() => {
   const imgUrl = img(
-    author.featuredImage ?? config.public.postFeaturedImagePlaceholder,
+    author.value.featuredImage ?? config.public.postFeaturedImagePlaceholder,
     { format: "webp" }
   );
   return { backgroundImage: `url('${imgUrl}')` };

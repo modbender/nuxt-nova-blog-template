@@ -21,7 +21,11 @@ export default defineNuxtConfig({
 
   routeRules: {
     // All pages on ISR - cached until next build clears it
-    '/**': { isr: true },
+    "/author/**": { isr: true },
+
+    "/nav/**": { isr: true },
+
+    "/p/**": { isr: true },
   },
 
   app: {
@@ -47,6 +51,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   content: {
+    markdown: {
+      remarkPlugins: ["remark-reading-time"],
+    },
     highlight: {
       theme: {
         // Default theme (same as single string)

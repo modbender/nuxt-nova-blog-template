@@ -1,15 +1,16 @@
 ---
 title: "Disqus for Nuxt 3"
 description: "Instantly add Disqus Comments to your posts or pages using this package designed to work perfectly with Nuxt 3."
-featuredImage: "/images/posts/example.jpg"
+featuredImage: "/images/posts/Nuxt3.jpg"
 added_at: "2023-09-10T05:35:07.322Z"
 modified_at: "2023-09-10T05:35:07.322Z"
 author: tim
 comments: true
 share: true
 tags:
-  - Test Post
-  - Testing
+  - Comments
+  - Disqus
+  - Nuxt 3
 ---
 
 Instantly add Disqus Comments to your posts or pages using this package designed to work perfectly with Nuxt 3.
@@ -92,14 +93,3 @@ yarn run test:watch
 # Release new version
 yarn run release
 ```
-
-<!-- Badges -->
-
-[npm-version-src]: https://img.shields.io/npm/v/nuxt-disqus/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-version-href]: https://npmjs.com/package/nuxt-disqus
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-disqus.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-downloads-href]: https://npmjs.com/package/nuxt-disqus
-[license-src]: https://img.shields.io/npm/l/nuxt-disqus.svg?style=flat&colorA=18181B&colorB=28CF8D
-[license-href]: https://npmjs.com/package/nuxt-disqus
-[nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
-[nuxt-href]: https://nuxt.com

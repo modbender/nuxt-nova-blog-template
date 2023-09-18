@@ -32,7 +32,7 @@ const { data: navPage } = await useAsyncData("navPage", () =>
 
 const backgroundStyles = computed(() => {
   const imgUrl = img(
-    navPage.featuredImage ?? config.public.postFeaturedImagePlaceholder
+    navPage.value.featuredImage ?? config.public.postFeaturedImagePlaceholder
   );
   return { backgroundImage: `url('${imgUrl}')` };
 });

@@ -22,7 +22,7 @@
           class="h4 text-decoration-none text-body-emphasis"
           :to="author._path"
         >
-        <Icon class="me-1 mb-1" name="mdi:link-variant" />
+          <Icon class="me-1 mb-1" name="mdi:link-variant" />
           <strong>{{ author.info.name }}</strong>
         </NuxtLink>
       </div>
@@ -108,5 +108,5 @@ const props = defineProps({
   },
 });
 
-const { author } = props;
+const { author } = toRefs(props);
 </script>

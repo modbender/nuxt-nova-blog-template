@@ -9,6 +9,7 @@ author: tim # MD filename under author not including extension
 comments: true
 share: true
 tags:
-  - Test
-  - Post
+  - Comments
+  - Disqus
+  - Nuxt 3
 ---
