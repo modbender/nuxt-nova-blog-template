@@ -33,7 +33,8 @@
             <NuxtLink
               v-for="post in react.searchPosts"
               :to="post._path"
-              class="list-group-item list-group-item-action list-group-item-primary"
+              class="list-group-item list-group-item-action"
+              :class="`list-group-item-${randomColorClass}`"
             >
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{ post.title }}</h5>
@@ -64,6 +65,19 @@ const initSearch = ref(false);
 const searchText = ref("");
 
 const react = reactive({ initSearch, searchText, searchPosts: null });
+
+const colorClasses = [
+  "primary",
+  "secondary",
+  "success",
+  "danger",
+  "warning",
+  "info",
+];
+
+const randomColorClass = computed(
+  () => colorClasses[Math.floor(Math.random() * colorClasses.length)]
+);
 
 watch(searchText, async () => {
   if (react.initSearch === true) {
