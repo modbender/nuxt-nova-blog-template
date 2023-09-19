@@ -8,7 +8,7 @@
       v-if="!!prevPost?.title"
     >
       <div class="card-body p-4">
-        <h5 class="card-title">{{ prevPost.title }}</h5>
+        <div class="h5 card-title">{{ prevPost.title }}</div>
         <p class="card-text text-truncate">
           {{ prevPost.description }}
         </p>
@@ -21,7 +21,7 @@
       v-if="!!nextPost?.title"
     >
       <div class="card-body p-4">
-        <h5 class="card-title">{{ nextPost.title }}</h5>
+        <div class="h5 card-title">{{ nextPost.title }}</div>
         <p class="card-text text-truncate">
           {{ nextPost.description }}
         </p>
