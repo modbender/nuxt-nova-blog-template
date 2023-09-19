@@ -1,6 +1,6 @@
 <template>
   <template v-if="!!prevPost?.title || !!nextPost?.title">
-    <h4 class="mb-3">You might also like:</h4>
+    <div class="h4 mb-3">You might also like:</div>
     <NuxtLink
       :to="prevPost._path"
       class="card h-100 mb-3 me-md-auto related-card"
