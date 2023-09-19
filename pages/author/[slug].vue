@@ -109,9 +109,14 @@
     </template>
     <h3 class="text-center mb-3">Posts by this Author</h3>
     <div v-if="!!authorPosts && authorPosts.length > 0" class="row">
-      <div class="col-12 col-md-6 my-2" v-for="post in authorPosts" :key="post">
+      <div
+        class="col-12 col-md-6 my-2"
+        v-for="post in authorPosts.slice(startIndex, endIndex)"
+        :key="post"
+      >
         <PostBox :post="post" />
       </div>
+      <Pagination :count="pageCount" />
     </div>
     <div v-else class="p-5 text-center display-6">No posts yet</div>
   </div>
@@ -127,15 +132,17 @@ const route = useRoute();
 const url = useRequestURL();
 const config = useRuntimeConfig();
 
-const { data: author } = await useAsyncData("author", () =>
+const { data: author } = await useAsyncData(`author-${route.params.slug}`, () =>
   queryContent(`/author/${route.params.slug}`).findOne()
 );
 
-const { data: authorPosts } = await useAsyncData("postList", () =>
-  queryContent("p")
-    .where({ _draft: false, author: route.params.slug })
-    .sort({ added_at: -1 })
-    .find()
+const { data: authorPosts } = await useAsyncData(
+  `authorPosts-${route.params.slug}`,
+  () =>
+    queryContent("p")
+      .where({ _draft: false, author: route.params.slug })
+      .sort({ added_at: -1 })
+      .find()
 );
 
 const backgroundStyles = computed(() => {
@@ -151,4 +158,14 @@ useSeoMeta({
   description: author.value.description ?? config.public.siteDescription,
   ogImage: author.value.featuredImage,
 });
+
+const postLimit = 6;
+const pageCount = Math.ceil(authorPosts.value.length / postLimit);
+
+const currentPage = computed(() => parseInt(route.query?.page) || 1);
+
+const startIndex = computed(() => postLimit * (currentPage.value - 1));
+const endIndex = computed(
+  () => postLimit * (currentPage.value - 1) + postLimit
+);
 </script>

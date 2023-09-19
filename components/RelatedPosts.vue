@@ -43,7 +43,7 @@ const [prevPost, nextPost] = await queryContent("/p")
 const prevPostStyles = computed(() => {
   const imgUrl = img(
     prevPost.featuredImage ?? config.public.postFeaturedImagePlaceholder,
-    { height: 200, quality: 90, format: "webp" }
+    { height: 200, quality: 60, format: "webp" }
   );
   return { backgroundImage: `url('${imgUrl}')` };
 });
@@ -51,7 +51,7 @@ const prevPostStyles = computed(() => {
 const nextPostStyles = computed(() => {
   const imgUrl = img(
     nextPost.featuredImage ?? config.public.postFeaturedImagePlaceholder,
-    { height: 200, quality: 90, format: "webp" }
+    { height: 200, quality: 60, format: "webp" }
   );
   return { backgroundImage: `url('${imgUrl}')` };
 });
