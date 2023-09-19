@@ -17,7 +17,7 @@
     </div>
 
     <div class="col">
-      <div class="flex flex-column mb-2">
+      <div class="flex flex-column mb-2 mt-3 mt-md-0">
         <NuxtLink
           class="h4 text-decoration-none text-body-emphasis"
           :to="author._path"

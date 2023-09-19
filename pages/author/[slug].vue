@@ -20,7 +20,7 @@
       <h1 class="mt-3">
         <strong>{{ author.info.name }}</strong>
       </h1>
-      <template v-if="!!author.info?.share">
+      <template v-if="!!author.info?.shareLinks">
         <hr class="mt-5 mt-2" />
         <div>
           <div class="mb-2">
@@ -108,15 +108,19 @@
       <hr class="mb-5 mb-2" />
     </template>
     <h3 class="text-center mb-3">Posts by this Author</h3>
+  </div>
+  <div class="container">
     <div v-if="!!authorPosts && authorPosts.length > 0" class="row">
       <div
-        class="col-12 col-md-6 my-2"
+        class="col-12 col-md-6 col-lg-4 my-2"
         v-for="post in authorPosts.slice(startIndex, endIndex)"
         :key="post"
       >
         <PostBox :post="post" />
       </div>
-      <Pagination :count="pageCount" />
+      <div class="mt-5 d-flex flex-column">
+        <Pagination :count="pageCount" />
+      </div>
     </div>
     <div v-else class="p-5 text-center display-6">No posts yet</div>
   </div>
