@@ -1,11 +1,11 @@
 <template>
-  <template v-if="!!prevPost || !!nextPost">
+  <template v-if="!!prevPost?.title || !!nextPost?.title">
     <h4 class="mb-3">You might also like:</h4>
     <NuxtLink
       :to="prevPost._path"
       class="card h-100 mb-3 me-md-auto related-card"
       :style="prevPostStyles"
-      v-if="!!prevPost"
+      v-if="!!prevPost?.title"
     >
       <div class="card-body p-4">
         <h5 class="card-title">{{ prevPost.title }}</h5>
@@ -18,7 +18,7 @@
       :to="nextPost._path"
       class="card h-100 ms-md-auto related-card"
       :style="nextPostStyles"
-      v-if="!!nextPost"
+      v-if="!!nextPost?.title"
     >
       <div class="card-body p-4">
         <h5 class="card-title">{{ nextPost.title }}</h5>
@@ -33,9 +33,10 @@
 <script setup>
 const img = useImage();
 const route = useRoute();
+const config = useRuntimeConfig();
 
 const [prevPost, nextPost] = await queryContent("/p")
-  .only(["_path", "title"])
+  .only(["_path", "title", "description", "featuredImage"])
   .sort({ added_at: -1 })
   .where({ _draft: false })
   .findSurround(route.path);
