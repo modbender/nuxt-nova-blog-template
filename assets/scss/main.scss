@@ -3,6 +3,10 @@
 
 @import "markdown";
 
+:root {
+  color-scheme: unset;
+}
+
 body,
 #__nuxt {
   display: flex;
@@ -78,6 +82,15 @@ li {
   }
 }
 
-:root {
-  color-scheme: unset;
+.related-card {
+  background-size: cover;
+  background-position: center center;
+  @extend .text-decoration-none;
+  @extend .text-white;
+
+  .card-body {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(50px);
+  }
 }

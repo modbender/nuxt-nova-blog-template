@@ -67,6 +67,7 @@
       <PostAuthorInfo :author="authorData" />
     </template>
     <hr class="mb-5 mt-2" />
+    <LazyRelatedPosts />
   </div>
   <div v-if="post.comments !== false" class="container">
     <DisqusComments :identifier="url.pathname" />
