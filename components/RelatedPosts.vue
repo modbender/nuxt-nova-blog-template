@@ -55,6 +55,4 @@ const nextPostStyles = computed(() => {
   );
   return { backgroundImage: `url('${imgUrl}')` };
 });
-
-console.log(prevPost, nextPost);
 </script>
