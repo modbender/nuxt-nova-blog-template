@@ -8,6 +8,7 @@
           height="100"
           quality="80"
           format="webp"
+          loading="lazy"
           class="rounded-circle"
           :src="author.info?.picture"
           :alt="author.info?.name"

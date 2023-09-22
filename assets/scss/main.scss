@@ -1,96 +1,16 @@
 //doc https://getbootstrap.com/docs/5.3
 @import "bootstrap/scss/bootstrap";
 
+//Uncomment below for Custom Themes - Edit it for adding new theme SCSS files
+// @import "themes/custom";
+
+@import "placeholder";
+@import "animations";
+
+@import "basic";
 @import "markdown";
 
+// Disqus theme fix
 :root {
   color-scheme: unset;
-}
-
-body,
-#__nuxt {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-li {
-  word-break: break-word;
-}
-
-.navbar {
-  .nav-link {
-    font-weight: 600;
-  }
-}
-
-.container-post {
-  @extend .container;
-  max-width: 680px;
-}
-
-.featured-container {
-  @extend .d-none;
-  @extend .d-md-block;
-  background-position: center center;
-  background-size: cover;
-  height: 400px;
-  width: 100%;
-}
-
-%box-transitions {
-  -webkit-transition: -webkit-transform 250ms ease, box-shadow 250ms ease,
-    color 250ms ease;
-  -webkit-transition: transform 250ms ease, box-shadow 250ms ease,
-    color 250ms ease;
-  transition: transform 250ms ease, box-shadow 250ms ease, color 250ms ease;
-}
-
-%box-hover {
-  -webkit-transform: translateY(-0.25rem);
-  -ms-transform: translateY(-0.25rem);
-  transform: translateY(-0.25rem);
-  box-shadow: 0px 2px 4px rgba(var(--bs-secondary-rgb), 0.08),
-    0px 5px 10px rgba(var(--bs-secondary-rgb), 0.16);
-}
-
-.post-box {
-  @extend %box-transitions;
-  position: relative;
-
-  &:hover {
-    @extend %box-hover;
-
-    .card-img-top {
-      @extend %box-hover;
-    }
-  }
-
-  .card-img-top {
-    @extend .p-2;
-    object-fit: cover;
-    border-radius: 15px;
-
-    @extend %box-transitions;
-  }
-}
-
-.related-card {
-  background-size: cover;
-  background-position: center center;
-  @extend .text-decoration-none;
-  @extend .text-white;
-
-  .card-body {
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(50px);
-  }
 }
