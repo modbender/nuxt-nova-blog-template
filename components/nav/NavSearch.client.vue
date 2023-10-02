@@ -32,21 +32,29 @@
           <div v-if="searchText !== ''" class="list-group border">
             <NuxtLink
               v-for="post in react.searchPosts"
-              :to="post._path"
+              :to="`/p/${post.attributes.slug}`"
               class="list-group-item list-group-item-action"
               :class="`list-group-item-${randomColorClass}`"
             >
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ post.title }}</h5>
+                <h5 class="mb-1">{{ post.attributes.title }}</h5>
                 <small>
-                  <TimeAgo :dt="post.added_at" />
+                  <TimeAgo :dt="post.attributes.added_at" />
                 </small>
               </div>
-              <p class="mb-1 text-truncate">{{ post.description }}</p>
+              <p class="mb-1 text-truncate">
+                {{ post.attributes.description }}
+              </p>
               <small class="text-truncate">
-                <template v-for="(tag, i) in post.tags" :key="tag">
-                  {{ tag }}
-                  <template v-if="i !== post.tags.length - 1">, </template>
+                <template
+                  v-for="(tag, i) in post.attributes.tags?.data"
+                  :key="tag.id"
+                >
+                  {{ tag.attributes.name }}
+                  <template
+                    v-if="i !== post.attributes.tags?.data.length - 1"
+                    >{{ ", " }}</template
+                  >
                 </template>
               </small>
             </NuxtLink>
@@ -63,6 +71,15 @@
 <script setup>
 const initSearch = ref(false);
 const searchText = ref("");
+const { find } = useStrapi();
+
+const props = defineProps({
+  allPosts: {
+    required: true,
+  },
+});
+
+const { allPosts } = toRefs(props);
 
 const react = reactive({ initSearch, searchText, searchPosts: null });
 
@@ -81,11 +98,11 @@ const randomColorClass = computed(
 
 watch(searchText, async () => {
   if (react.initSearch === true) {
-    const data = await queryContent("p")
-      .where({ title: { $regex: `/${react.searchText}/ig` } })
-      .only(["title", "description", "added_at", "tags", "_path"])
-      .find();
-
+    const data = unref(allPosts).filter(function (post) {
+      const title = post.attributes.title.toString();
+      const newRegex = new RegExp(react.searchText, "gi");
+      return title.match(newRegex) != null;
+    });
     react.searchPosts = data;
   } else {
     react.initSearch = true;

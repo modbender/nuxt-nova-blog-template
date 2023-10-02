@@ -1,15 +1,14 @@
 <template>
-  <NavBar :navIndex="navIndex.pages" />
+  <NavBar />
   <main>
     <slot />
   </main>
   <LayoutFooter />
   <NuxtLoadingIndicator />
-  <NavSearch />
+  <ScrollUp />
+  <NavSearch :allPosts="allPosts" />
 </template>
 
 <script setup>
-const { data: navIndex } = await useAsyncData("navIndex", () =>
-  queryContent(`/nav`).only("pages").findOne()
-);
+const allPosts = await getAllPosts();
 </script>

@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     class="post-box card text-decoration-none w-100 h-100"
-    :to="post._path"
+    :to="`/p/${post.attributes.slug}`"
   >
     <NuxtImg
       preload
@@ -10,10 +10,10 @@
       quality="75"
       format="webp"
       class="card-img-top"
-      :src="post.featuredImage"
+      :src="featuredImage"
       :alt="post.title"
     />
-    <div class="card-body">
+    <div class="card-body h-100">
       <div v-if="!!post.tags && post.tags.length > 0" class="mb-3">
         <span
           class="badge text-black bg-warning p-2 me-2"
@@ -24,23 +24,25 @@
         </span>
       </div>
       <h5 class="card-title">
-        <strong>{{ post.title }}</strong>
+        <strong>{{ post.attributes.title }}</strong>
       </h5>
       <hr class="my-2" />
       <p class="card-text">
-        {{ post.description }}
+        {{ post.attributes.description }}
       </p>
     </div>
     <div class="card-body row">
       <div class="col text-info-emphasis">
         <Icon name="mdi:clock-outline" class="me-1 mb-1" />
-        <TimeAgo :dt="post.added_at" />
+        <TimeAgo :dt="post.attributes.createdAt" />
       </div>
     </div>
   </NuxtLink>
 </template>
 
 <script setup>
+const config = useRuntimeConfig();
+
 const props = defineProps({
   post: {
     required: true,
@@ -48,4 +50,8 @@ const props = defineProps({
 });
 
 const { post } = toRefs(props);
+
+const featuredImage = !!post.value.attributes.featuredImage.data
+  ? useStrapiMedia(post.value.attributes.featuredImage.data.attributes.url)
+  : config.public.postFeaturedImagePlaceholder;
 </script>

@@ -39,11 +39,13 @@ li {
 .post-box {
   @extend %box-transitions;
   @extend %box-elements;
-  position: relative;
 
-  & > * {
-    z-index: 2;
-    position: relative;
+  &, &::before, &::after {
+    border-radius: var(--bs-card-border-radius);
+  }
+
+  &::after {
+    background-color: var(--bs-card-bg);
   }
 
   .card-img-top {

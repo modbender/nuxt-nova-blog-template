@@ -1,5 +1,4 @@
 <template>
-  <SeoKit />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

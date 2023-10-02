@@ -1,12 +1,9 @@
 export const usePagination = (props = {}) => {
   // keep default values in sync with @default tags in Pagination.propTypes
   const route = useRoute();
-  const router = useRouter();
   const {
     boundaryCount = 1,
     count = 1,
-    currentPage = 1,
-    defaultPage = 1,
     disabled = false,
     hideNextButton = false,
     hidePrevButton = false,
@@ -17,13 +14,12 @@ export const usePagination = (props = {}) => {
     siblingCount = 1,
   } = props;
 
-  const page = ref(parseInt(route.query?.page || 1, 10));
+  const page = ref(parseInt(route.params?.page || 1, 10));
   const react = reactive({ page });
 
   const handleClick = (event, value) => {
     if (!pageProp) {
       react.page = value;
-      router.push({ query: { ...route.query, page: value } });
     }
     if (handleChange) {
       handleChange(event, value);

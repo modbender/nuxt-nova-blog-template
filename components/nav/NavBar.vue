@@ -28,7 +28,7 @@
           />
         </button>
       </div>
-      <button
+      <!-- <button
         type="button"
         class="navbar-toggler"
         data-bs-toggle="collapse"
@@ -38,30 +38,8 @@
         aria-label="Toggle navbar"
       >
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <NuxtLink
-              class="nav-link"
-              :class="{ active: $route.path === '/' }"
-              aria-current="page"
-              to="/"
-            >
-              HOME
-            </NuxtLink>
-          </li>
-          <li class="nav-item" v-for="(key, value) in navIndex" :key="key">
-            <NuxtLink
-              class="nav-link"
-              :class="{ active: $route.path === `/nav/${key}` }"
-              aria-current="page"
-              :to="`/nav/${key}`"
-            >
-              {{ value }}
-            </NuxtLink>
-          </li>
-        </ul>
         <ul class="navbar-nav ms-md-auto d-none d-md-flex mb-lg-0">
           <li class="nav-item">
             <button
@@ -94,13 +72,6 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  navIndex: {
-    required: false,
-  },
-});
-
-const { navIndex } = toRefs(props);
 const colorMode = useColorMode();
 
 const colorModeIcons = {

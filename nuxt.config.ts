@@ -8,7 +8,7 @@ export default defineNuxtConfig({
       language: "en-US", // prefer more explicit language codes like `en-AU` over `en`, but `en` also works fine.
       titleSeparator: "|", // Best options: | or -
 
-      postFeaturedImagePlaceholder: "/images/posts/example.jpg",
+      postFeaturedImagePlaceholder: "/images/placeholder.jpg",
 
       shareLinks: {
         youtube: "#",
@@ -21,6 +21,8 @@ export default defineNuxtConfig({
 
   routeRules: {
     // All pages on ISR - cached until next build clears it
+    "/api/**": { isr: true },
+
     "/author/**": { isr: true },
 
     "/nav/**": { isr: true },
@@ -37,23 +39,32 @@ export default defineNuxtConfig({
   css: ["@/assets/scss/main.scss"],
 
   modules: [
-    "@vueuse/nuxt", // source: https://vueuse.org/nuxt/README.html
-    // "@nuxtjs/google-adsense", // sourc: https://nuxt.com/modules/google-adsense
+    "@nuxtjs/strapi",
+    "@nuxtseo/module", // doc https://nuxtseo.com/
+    // "@nuxtjs/google-adsense", // source: https://nuxt.com/modules/google-adsense
     "@nuxtjs/color-mode", // doc: https://color-mode.nuxtjs.org/
     "@nuxt/image-edge",
     "@nuxt/content",
+    "@vueuse/nuxt", // source: https://vueuse.org/nuxt/README.html
     "nuxt-disqus", // source: https://github.com/modbender/nuxt-disqus
     "nuxt-icon", // icons: https://icones.js.org/, doc: https://nuxt.com/modules/icon
   ],
 
-  extends: ["nuxt-seo-kit"], // doc https://nuxtseo.com/
-
   devtools: { enabled: true },
 
-  content: {
-    markdown: {
-      remarkPlugins: ["remark-reading-time"],
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ["/"],
     },
+  },
+
+  strapi: {
+    prefix: "/api",
+    version: "v4",
+  },
+
+  content: {
     highlight: {
       theme: {
         // Default theme (same as single string)
@@ -73,6 +84,8 @@ export default defineNuxtConfig({
     domains: [
       "http://127.0.0.1:3000",
       "http://localhost:3000",
+      "http://127.0.0.1:1337",
+      "http://localhost:1337",
       "https://nuxt-nova.netlify.app",
     ],
   },
@@ -83,24 +96,36 @@ export default defineNuxtConfig({
   //   test: true, // remove or set to false when having approved adsense account id
   // },
 
-  unhead: {
-    ogTitleTemplate: "%pageTitle %titleSeparator %siteName",
+  sitemap: {
+    // manually chunk into multiple sitemaps
+    sitemaps: {
+      posts: {
+        include: ["/p/**"],
+        // give blog posts slightly higher priority (this is optional)
+        defaults: { priority: 0.9 },
+      },
+      tags: {
+        include: ["/tag/**"],
+      },
+      authors: {
+        include: ["/author/**"],
+      },
+      pages: {
+        exclude: ["/p/**", "/tag/**", "/author/**"],
+      },
+    },
   },
 
   colorMode: {
     // doc: https://color-mode.nuxtjs.org/
     preference: "dark",
-    fallback: "light",
     dataValue: "bs-theme",
+    fallback: "light",
     classSuffix: "",
   },
 
   disqus: {
     // get shortname: https://disqus.com/admin/
     shortname: "nuxt-nova",
-  },
-
-  linkChecker: {
-    failOn404: true,
   },
 });

@@ -20,13 +20,19 @@
 }
 
 %box-elements {
+  position: relative;
+
+  & > * {
+    z-index: 2;
+    position: relative;
+  }
+
   &::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 1;
     transition: opacity 0.25s;
-    border-radius: var(--bs-card-border-radius);
   }
 
   &::after {
