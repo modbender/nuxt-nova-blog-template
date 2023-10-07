@@ -41,7 +41,7 @@ export const usePagination = (props = {}) => {
   const siblingsStart = Math.max(
     Math.min(
       // Natural start
-      page.value - siblingCount,
+      unref(page) - siblingCount,
       // Lower boundary when page is high
       count - boundaryCount - siblingCount * 2 - 1
     ),
@@ -52,7 +52,7 @@ export const usePagination = (props = {}) => {
   const siblingsEnd = Math.min(
     Math.max(
       // Natural end
-      page.value + siblingCount,
+      unref(page) + siblingCount,
       // Upper boundary when page is low
       boundaryCount + siblingCount * 2 + 2
     ),
@@ -96,9 +96,9 @@ export const usePagination = (props = {}) => {
       case "first":
         return 1;
       case "previous":
-        return page.value - 1;
+        return unref(page) - 1;
       case "next":
-        return page.value + 1;
+        return unref(page) + 1;
       case "last":
         return count;
       default:
@@ -115,7 +115,7 @@ export const usePagination = (props = {}) => {
             },
             type: "page",
             page: item,
-            selected: item === page.value,
+            selected: item === unref(page),
             disabled: disabled,
           }
         : {
@@ -129,8 +129,8 @@ export const usePagination = (props = {}) => {
               disabled ||
               (item.indexOf("ellipsis") === -1 &&
                 (item === "next" || item === "last"
-                  ? page.value >= count
-                  : page.value <= 1)),
+                  ? unref(page) >= count
+                  : unref(page) <= 1)),
           }
     )
   );

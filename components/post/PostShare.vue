@@ -6,6 +6,7 @@
           type="button"
           class="btn dropdown-toggle"
           data-bs-toggle="dropdown"
+          aria-label="Share Post"
           aria-expanded="false"
         >
           <Icon name="mdi:share-variant" class="mx-1" />

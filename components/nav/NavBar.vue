@@ -8,17 +8,17 @@
         class="d-flex d-md-none flex-row justify-content-center ms-auto me-2"
       >
         <button
-          aria-label="Open Search Box"
           class="nav-link p-2"
+          aria-label="Open Search Box"
           data-bs-target="#searchModal"
           data-bs-toggle="modal"
         >
           <Icon width="30" height="30" name="mdi:magnify" class="mb-md-1" />
         </button>
         <button
-          aria-label="Toggle Dark Mode"
           class="nav-link p-2"
           @click="toggleColorMode"
+          aria-label="Toggle Dark Mode"
         >
           <Icon
             width="30"
@@ -34,8 +34,8 @@
         data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
-        aria-expanded="false"
         aria-label="Toggle navbar"
+        aria-expanded="false"
       >
         <span class="navbar-toggler-icon"></span>
       </button>

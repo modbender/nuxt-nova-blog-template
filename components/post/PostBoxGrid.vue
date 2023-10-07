@@ -5,13 +5,14 @@
   >
     <NuxtImg
       preload
+      width="380"
+      height="290"
       quality="75"
-      width="380px"
       format="webp"
       sizes="80vw xs:290px sm:310px md:270px lg:390px"
       class="card-img-top"
       :src="featuredImage"
-      :alt="post.title"
+      :alt="post.attributes.title"
     />
     <div class="card-body h-100">
       <div
@@ -28,9 +29,9 @@
           {{ tag.attributes.name }}
         </span>
       </div>
-      <h5 class="card-title">
+      <div class="card-title h5">
         <strong>{{ post.attributes.title }}</strong>
-      </h5>
+      </div>
       <hr class="my-2" />
       <div class="card-text">
         <p>{{ post.attributes.description }}</p>
@@ -56,7 +57,7 @@ const props = defineProps({
 
 const { post } = toRefs(props);
 
-const featuredImage = !!post.value.attributes.featuredImage?.data
-  ? useStrapiMedia(post.value.attributes.featuredImage.data.attributes.url)
+const featuredImage = !!unref(post).attributes.featuredImage?.data
+  ? useStrapiMedia(unref(post).attributes.featuredImage.data.attributes.url)
   : config.public.postFeaturedImagePlaceholder;
 </script>

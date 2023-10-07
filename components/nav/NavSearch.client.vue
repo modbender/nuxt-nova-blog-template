@@ -14,7 +14,7 @@
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
-            aria-label="Close"
+            aria-label="Close Search Box"
           ></button>
         </div>
         <div class="modal-body">

@@ -5,6 +5,7 @@
   >
     <button
       type="button"
+      aria-label="Scroll To Top"
       class="btn btn-primary rounded-circle"
       @click="scrollToTop"
     >

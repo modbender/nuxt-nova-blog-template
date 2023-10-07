@@ -10,7 +10,7 @@
           v-if="item.type === 'start-ellipsis' || item.type === 'end-ellipsis'"
         >
           <li class="page-item disabled">
-            <button class="page-link">...</button>
+            <button aria-label="Page Ellipsis" class="page-link">...</button>
           </li>
         </template>
         <template v-else-if="item.type === 'page'">
@@ -39,7 +39,12 @@
             >
               <Icon name="mdi:chevron-left" />
             </NuxtLink>
-            <button v-else class="page-link disabled" :disabled="true">
+            <button
+              v-else
+              class="page-link disabled"
+              aria-label="Disabled Previous Page"
+              :disabled="true"
+            >
               <Icon name="mdi:chevron-left" />
             </button>
           </li>
@@ -55,14 +60,23 @@
             >
               <Icon name="mdi:chevron-right" />
             </NuxtLink>
-            <button v-else class="page-link disabled" :disabled="true">
+            <button
+              v-else
+              class="page-link disabled"
+              aria-label="Disabled Next Page"
+              :disabled="true"
+            >
               <Icon name="mdi:chevron-right" />
             </button>
           </li>
         </template>
         <template v-else>
           <li class="page-item">
-            <button class="page-link" :disabled="item.disabled">
+            <button
+              class="page-link"
+              :disabled="item.disabled"
+              aria-label="Disabled Page"
+            >
               {{ item.type }}
             </button>
           </li>
@@ -87,7 +101,8 @@ const props = defineProps({
 });
 
 const { label, count, classes } = toRefs(props);
+
 const items = usePagination({
-  count: count.value,
+  count: unref(count),
 });
 </script>
