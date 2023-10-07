@@ -46,7 +46,6 @@ export default defineNuxtConfig({
     "@nuxtseo/module", // doc https://nuxtseo.com/
     "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/
     // "@nuxtjs/google-adsense", // source: https://nuxt.com/modules/google-adsense
-    "nuxt-delay-hydration", // doc https://nuxt.com/modules/delay-hydration
     "@nuxtjs/color-mode", // doc: https://color-mode.nuxtjs.org/
     "@nuxt/image-edge",
     "@nuxt/content",
@@ -62,11 +61,6 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ["/"],
     },
-  },
-
-  delayHydration: {
-    // enables nuxt-delay-hydration in dev mode for testing
-    debug: process.env.NODE_ENV === "development",
   },
 
   googleFonts: {
