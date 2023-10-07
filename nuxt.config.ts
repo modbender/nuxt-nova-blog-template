@@ -104,6 +104,7 @@ export default defineNuxtConfig({
       "http://127.0.0.1:1337",
       "http://localhost:1337",
       "https://nuxt-nova.netlify.app",
+      process.env.STRAPI_URL as string,
     ],
   },
 
