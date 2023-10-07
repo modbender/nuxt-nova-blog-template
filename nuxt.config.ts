@@ -2,11 +2,18 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://127.0.0.1:3000",
-      siteName: "Nuxt Nova", // Will be displayed on home page
-      siteDescription: "Nuxt Nova Blog Template",
-      language: "en-US", // prefer more explicit language codes like `en-AU` over `en`, but `en` also works fine.
+      site: {
+        url: process.env.NUXT_PUBLIC_SITE_URL || "https://127.0.0.1:3000",
+        name: "Nuxt Nova", // Will be displayed on home page
+        description: "Nuxt Nova Blog Template",
+      },
+
+      defaultLocale: "en",
       titleSeparator: "|", // Best options: | or -
+
+      identity: {
+        type: "Nuxt Nova",
+      },
 
       postFeaturedImagePlaceholder: "/images/placeholder.jpg",
 
@@ -17,12 +24,14 @@ export default defineNuxtConfig({
         instagram: "#",
       },
     },
+
+    nuxtNovaControl: {
+      postListStyle: "grid", //either 'grid' or 'list',
+    },
   },
 
   routeRules: {
     // All pages on ISR - cached until next build clears it
-    "/api/**": { isr: true },
-
     "/author/**": { isr: true },
 
     "/nav/**": { isr: true },
@@ -30,18 +39,14 @@ export default defineNuxtConfig({
     "/p/**": { isr: true },
   },
 
-  app: {
-    head: {
-      titleTemplate: "%pageTitle %titleSeparator %siteName",
-    },
-  },
-
   css: ["@/assets/scss/main.scss"],
 
   modules: [
     "@nuxtjs/strapi",
     "@nuxtseo/module", // doc https://nuxtseo.com/
+    "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/
     // "@nuxtjs/google-adsense", // source: https://nuxt.com/modules/google-adsense
+    "nuxt-delay-hydration", // doc https://nuxt.com/modules/delay-hydration
     "@nuxtjs/color-mode", // doc: https://color-mode.nuxtjs.org/
     "@nuxt/image-edge",
     "@nuxt/content",
@@ -56,6 +61,18 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ["/"],
+    },
+  },
+
+  delayHydration: {
+    // enables nuxt-delay-hydration in dev mode for testing
+    debug: process.env.NODE_ENV === "development",
+  },
+
+  googleFonts: {
+    display: "swap",
+    families: {
+      Roboto: true,
     },
   },
 

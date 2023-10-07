@@ -1,6 +1,6 @@
 <template>
   <div
-    class="toast-container position-fixed end-0 p-3 scroll-top"
+    class="position-fixed end-0 p-3 scroll-top"
     :class="{ hidden: !react.showScroller }"
   >
     <button
@@ -33,8 +33,13 @@ onBeforeMount(() => {
 <style lang="scss">
 .scroll-top {
   bottom: 0;
-  opacity: 1;
-  transition: opacity 0.3s linear, bottom 0.3s linear, display 0.4s linear;
+  opacity: 0.6;
+  transition: opacity 0.2s linear, bottom 0.3s linear, display 0.4s linear;
+  bottom: 50px;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .hidden {

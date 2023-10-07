@@ -21,13 +21,14 @@
       <strong>{{ post.attributes.title }}</strong>
     </h1>
     <div class="h5" v-if="!!tags && tags.length > 0">
-      <span
-        class="badge badge-lg text-black bg-warning p-2 me-2 mb-2"
+      <NuxtLink
+        :to="`/tag/${tag.attributes.slug}`"
+        class="badge text-black text-decoration-none bg-warning p-2 me-2 mb-2"
         v-for="tag in tags"
         :key="tag"
       >
         {{ tag.attributes.name }}
-      </span>
+      </NuxtLink>
     </div>
     <div class="row">
       <div class="col text-secondary-emphasis">
@@ -39,19 +40,25 @@
           <TimeAgo :dt="post.attributes.updatedAt" :pretty="true" />
         </strong>
       </div>
+      <div
+        class="col-auto text-secondary-emphasis"
+        v-if="!!post.attributes.readingTime"
+      >
+        <strong>{{ post.attributes.readingTime }}</strong>
+      </div>
     </div>
     <template v-if="post.attributes.share !== false">
       <hr class="mt-5 mb-2" />
-      <PostShare :title="post.title" />
+      <PostShare :title="post.attributes.title" />
       <hr class="mb-5 mt-2" />
     </template>
     <hr v-else class="my-5 mt-2" />
-    <div class="markdown-body">
+    <div id="article" class="markdown-body">
       <MDC :value="post.attributes.content" tag="article" />
     </div>
     <template v-if="post.attributes.share !== false">
       <hr class="mt-5 mb-2" />
-      <PostShare :title="post.title" />
+      <PostShare :title="post.attributes.title" />
     </template>
     <template v-if="!!authorData?.id && post.attributes.showAuthor === true">
       <hr
@@ -66,7 +73,7 @@
     <hr class="mb-5 mt-2" />
     <RelatedPosts :post="post" />
   </div>
-  <div v-if="post.comments !== false" class="container">
+  <div v-if="post.comments !== false" class="container mb-5">
     <DisqusComments :identifier="url.pathname" />
   </div>
 </template>
@@ -83,10 +90,12 @@ const { data: postListData } = await useAsyncData(
   () =>
     find("posts", {
       populate: {
-        tags: "*",
+        tags: {
+          fields: ["name", "slug"],
+        },
         featuredImage: "*",
         author: {
-          fields: ["id", "username", "description", "shareLinks"],
+          fields: ["username", "description", "shareLinks"],
           populate: {
             picture: "*",
             shareLinks: {
@@ -131,22 +140,6 @@ const backgroundStyles = computed(() => {
   return { backgroundImage: `url('${imgUrl}')` };
 });
 
-const metaData = {
-  title: post.attributes.title,
-  description: post.attributes.description ?? config.public.siteDescription,
-  twitterCard: "summary_large_image",
-
-  articlePublishedTime: post.attributes.createdAt,
-  articleModifiedTime: post.attributes.updatedAt,
-
-  articleTag:
-    tags?.length > 0
-      ? tags.map(function (tag) {
-          return tag["attributes"]["name"];
-        })
-      : [],
-};
-
 const imageMetaData =
   featuredOgImageData.length > 0
     ? {
@@ -161,9 +154,46 @@ const authorMetaData =
       }
     : {};
 
-useSeoMeta({
-  ...metaData,
+const breadcrumbItems = [
+  { name: "Home", item: "/" },
+  { name: "Post List", item: "/list/posts" },
+  { name: post.attributes.title, item: route.path },
+];
+
+const metaData = {
+  title: post.attributes.title,
+  description: post.attributes.description ?? config.public.site.description,
+  twitterCard: "summary_large_image",
+
+  articlePublishedTime: post.attributes.createdAt,
+  articleModifiedTime: post.attributes.updatedAt,
+
   ...imageMetaData,
   ...authorMetaData,
-});
+};
+
+useSchemaOrg([
+  defineArticle({
+    headline: metaData.title,
+    description: metaData.description,
+    dateModified: metaData.articleModifiedTime,
+    datePublished: metaData.articlePublishedTime,
+    ...(featuredOgImageData.length > 0
+      ? {
+          image: featuredOgImageData[0].url,
+        }
+      : {}),
+    ...(!!authorData && !!authorData.id
+      ? {
+          name: authorData.username,
+          url: `/author/${authorData.id}`,
+        }
+      : {}),
+  }),
+  defineBreadcrumb({
+    itemListElement: breadcrumbItems,
+  }),
+]);
+
+useSeoMeta(metaData);
 </script>

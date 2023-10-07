@@ -24,7 +24,7 @@ const { data } = await useAsyncData("aboutPage", () =>
 const { data: aboutPage } = unref(data);
 const aboutFeaturedImage = aboutPage.attributes.featuredImage?.data;
 const aboutOgImageData = !!aboutFeaturedImage
-  ? useStrapiOgImage(aboutPage.title, aboutFeaturedImage)
+  ? useStrapiOgImage(aboutPage.attributes.title, aboutFeaturedImage)
   : [];
 
 const backgroundStyles = computed(() => {
@@ -34,14 +34,6 @@ const backgroundStyles = computed(() => {
   return { backgroundImage: `url('${imgUrl}')` };
 });
 
-const metaData = {
-  title: unref(aboutPage).username,
-  description:
-    unref(aboutPage).description ||
-    unref(aboutPage).content ||
-    config.public.siteDescription,
-};
-
 const imageMetaData =
   aboutOgImageData.length > 0
     ? {
@@ -49,8 +41,22 @@ const imageMetaData =
       }
     : {};
 
-useSeoMeta({
-  ...metaData,
+const metaData = {
+  title: aboutPage.attributes.title,
+  description:
+    aboutPage.attributes.description ||
+    aboutPage.attributes.content ||
+    aboutPage.attributes.title,
+  twitterCard: "summary_large_image",
+
   ...imageMetaData,
-});
+};
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [{ name: aboutPage.attributes.title, item: "/about" }],
+  }),
+]);
+
+useSeoMeta(metaData);
 </script>

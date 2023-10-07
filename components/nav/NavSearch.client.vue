@@ -18,49 +18,66 @@
           ></button>
         </div>
         <div class="modal-body">
-          <input
-            type="text"
-            role="search"
-            class="form-control"
-            placeholder="Type here..."
-            aria-label="Search"
-            aria-describedby="basic-search"
-            v-model="react.searchText"
-          />
+          <form class="form-inline" method="GET" action="/search">
+            <input
+              name="title"
+              type="search"
+              role="search"
+              class="form-control"
+              placeholder="Type here..."
+              aria-label="Search"
+              aria-describedby="basic-search"
+              v-model="react.searchText"
+            />
+          </form>
         </div>
         <div class="modal-body">
-          <div v-if="searchText !== ''" class="list-group border">
-            <NuxtLink
-              v-for="post in react.searchPosts"
-              :to="`/p/${post.attributes.slug}`"
-              class="list-group-item list-group-item-action"
-              :class="`list-group-item-${randomColorClass}`"
-            >
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ post.attributes.title }}</h5>
-                <small>
-                  <TimeAgo :dt="post.attributes.added_at" />
-                </small>
-              </div>
-              <p class="mb-1 text-truncate">
-                {{ post.attributes.description }}
-              </p>
-              <small class="text-truncate">
-                <template
-                  v-for="(tag, i) in post.attributes.tags?.data"
-                  :key="tag.id"
-                >
-                  {{ tag.attributes.name }}
+          <div
+            v-if="
+              searchText !== '' &&
+              searchText.length > 2 &&
+              react.searchPosts.length > 0
+            "
+            class="list-group border"
+          >
+            <template v-if="!!react.searchPosts?.length > 0">
+              <NuxtLink
+                v-for="post in react.searchPosts"
+                :to="`/p/${post.attributes.slug}`"
+                class="list-group-item list-group-item-action"
+                :class="`list-group-item-${randomColorClass}`"
+              >
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ post.attributes.title }}</h5>
+                  <small>
+                    <TimeAgo :dt="post.attributes.added_at" />
+                  </small>
+                </div>
+                <p class="mb-1 text-truncate">
+                  {{ post.attributes.description }}
+                </p>
+                <small class="text-truncate">
                   <template
-                    v-if="i !== post.attributes.tags?.data.length - 1"
-                    >{{ ", " }}</template
+                    v-for="(tag, i) in post.attributes.tags?.data"
+                    :key="tag.id"
                   >
-                </template>
-              </small>
-            </NuxtLink>
+                    {{ tag.attributes.name }}
+                    <template
+                      v-if="i !== post.attributes.tags?.data.length - 1"
+                      >{{ ", " }}</template
+                    >
+                  </template>
+                </small>
+              </NuxtLink>
+            </template>
+            <div v-else class="p-5 text-center display-4">No Posts to show</div>
           </div>
-          <div v-else class="text-center border py-5">
-            <strong class="text-secondary">Type something to search!</strong>
+          <div
+            v-if="searchText.length < 3"
+            class="p-5 text-center d-flex flex-column"
+          >
+            <strong class="display-4">Type to search</strong>
+            <small>Min 3 characters</small>
           </div>
         </div>
       </div>
@@ -71,7 +88,7 @@
 <script setup>
 const initSearch = ref(false);
 const searchText = ref("");
-const { find } = useStrapi();
+const searchPosts = ref([]);
 
 const props = defineProps({
   allPosts: {
@@ -81,26 +98,19 @@ const props = defineProps({
 
 const { allPosts } = toRefs(props);
 
-const react = reactive({ initSearch, searchText, searchPosts: null });
+const react = reactive({ initSearch, searchText, searchPosts });
 
-const colorClasses = [
-  "primary",
-  "secondary",
-  "success",
-  "danger",
-  "warning",
-  "info",
-];
+const colorClasses = ["primary", "success", "danger", "warning", "info"];
 
 const randomColorClass = computed(
   () => colorClasses[Math.floor(Math.random() * colorClasses.length)]
 );
 
-watch(searchText, async () => {
+watch(searchText, async (newSearchText) => {
   if (react.initSearch === true) {
     const data = unref(allPosts).filter(function (post) {
       const title = post.attributes.title.toString();
-      const newRegex = new RegExp(react.searchText, "gi");
+      const newRegex = new RegExp(newSearchText, "gi");
       return title.match(newRegex) != null;
     });
     react.searchPosts = data;

@@ -115,7 +115,7 @@
         v-for="post in authorPosts.data"
         :key="post"
       >
-        <PostBox :post="post" />
+        <PostBoxGrid :post="post" />
       </div>
       <div class="mt-5 d-flex flex-column">
         <Pagination :count="authorPosts.meta.pagination.pageCount" />
@@ -128,7 +128,6 @@
 <script setup>
 const img = useImage();
 const route = useRoute();
-const config = useRuntimeConfig();
 const { find, findOne } = useStrapi();
 
 const currentPage = computed(() => route.params?.page || 1);
@@ -184,14 +183,6 @@ const backgroundStyles = computed(() => {
   return { backgroundImage: `url('${imgUrl}')` };
 });
 
-const metaData = {
-  title: unref(author).username,
-  description:
-    unref(author).description ||
-    unref(author).content ||
-    config.public.siteDescription,
-};
-
 const imageMetaData =
   pictureOgImageData.length > 0
     ? {
@@ -199,10 +190,34 @@ const imageMetaData =
       }
     : {};
 
-useSeoMeta({
-  ...metaData,
+const metaData = {
+  title: `${unref(author).username} | Author`,
+  description:
+    unref(author).description ||
+    unref(author).content ||
+    unref(author).username,
+  twitterCard: "summary_large_image",
+
   ...imageMetaData,
-});
+};
+
+useSchemaOrg([
+  definePerson({
+    name: unref(author).username,
+    description:
+      unref(author).description ||
+      unref(author).content ||
+      unref(author).username,
+    url: `/author/${unref(author).id}`,
+    ...(!!pictureOgImageData.length > 0
+      ? {
+          image: pictureOgImageData[0].url,
+        }
+      : {}),
+  }),
+]);
+
+useSeoMeta(metaData);
 
 definePageMeta({
   scrollToTop: false,

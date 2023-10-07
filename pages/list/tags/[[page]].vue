@@ -2,6 +2,24 @@
   <div class="container mx-auto my-5 px-4">
     <template v-if="!!tagList?.data && tagList.data.length > 0">
       <h1 class="h2 border-bottom pb-3 mb-3">Tag List</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li
+            class="breadcrumb-item"
+            :class="{ active: $route.path === breadcrumb.item }"
+            v-for="breadcrumb in breadcrumbItems"
+            :key="breadcrumb.name"
+          >
+            <strong v-if="$route.path === breadcrumb.item">
+              {{ breadcrumb.name }}
+            </strong>
+            <NuxtLink v-else class="text-decoration-none" :to="breadcrumb.item">
+              {{ breadcrumb.name }}
+            </NuxtLink>
+          </li>
+        </ol>
+      </nav>
+      <hr />
       <div class="row">
         <div
           v-for="tag in tagList.data"
@@ -9,8 +27,10 @@
           :key="tag.id"
         >
           <NuxtLink
-            class="card text-decoration-none icon-link-hover h-100"
             :to="`/tag/${tag.attributes.slug}`"
+            class="card text-decoration-none icon-link-hover h-100"
+            data-bs-toggle="tooltip"
+            :data-bs-title="tag.attributes.description ?? ''"
           >
             <div class="card-body">
               <h2 class="h4 card-title">
@@ -51,12 +71,25 @@ const { data: tagList } = await useAsyncData(`tags-${unref(currentPage)}`, () =>
   })
 );
 
+const breadcrumbItems = [
+  { name: "Home", item: "/" },
+  { name: "Tag List", item: "/list/tags" },
+];
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: breadcrumbItems,
+  }),
+]);
+
 useSeoMeta({
   title: "Tag List",
   description: "List of Tags for easy access to all article-related topics",
+  twitterCard: "summary_large_image",
 });
 
 definePageMeta({
+  name: "TagList",
   validate: async (route) => {
     // Check if the id is made up of digits
     return /^\d*$/.test(route.params.page);

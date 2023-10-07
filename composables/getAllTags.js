@@ -5,14 +5,13 @@ export default async () => {
   const { find } = useStrapi();
 
   const getData = async (currentPage = 1) => {
-    const { data } = await useAsyncData(`getall-posts-${currentPage}`, () =>
-      find("posts", {
+    const { data } = await useAsyncData(`getall-tags-${currentPage}`, () =>
+      find("tags", {
         pagination: {
           page: currentPage,
           pageSize: 1000,
         },
-        populate: ["featuredImage", "tags"],
-        fields: ["title", "slug", "description"],
+        fields: ["name", "slug", "description"],
       })
     );
 

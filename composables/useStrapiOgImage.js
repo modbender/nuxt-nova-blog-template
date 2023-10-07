@@ -1,6 +1,8 @@
 export default function (title, imageData) {
   if (!imageData) return null;
 
+  const img = useImage();
+
   const imageAttributes = !!imageData.attributes
     ? imageData.attributes
     : imageData;
@@ -13,7 +15,18 @@ export default function (title, imageData) {
   };
 
   if (!imageAttributes.formats) {
-    return [originalImage];
+    return [originalImage].map((image) => {
+      const imgUrl = img(image.url, {
+        width: image.width,
+        height: image.height,
+        format: "webp",
+        quality: 90,
+      });
+      return {
+        ...image,
+        url: imgUrl,
+      };
+    });
   }
 
   const thumbnailImageData = imageAttributes.formats.thumbnail;
@@ -40,5 +53,18 @@ export default function (title, imageData) {
     alt: title,
   };
 
-  return [originalImage, thumbnailImage, mediumImage, smallImage];
+  return [originalImage, thumbnailImage, mediumImage, smallImage].map(
+    (image) => {
+      const imgUrl = img(image.url, {
+        width: image.width,
+        height: image.height,
+        format: "webp",
+        quality: 90,
+      });
+      return {
+        ...image,
+        url: imgUrl,
+      };
+    }
+  );
 }

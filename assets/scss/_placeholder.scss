@@ -1,12 +1,16 @@
-%box-transitions {
+.highlight-transitions {
   -webkit-transition: -webkit-transform 250ms ease, box-shadow 250ms ease,
     color 250ms ease;
   -webkit-transition: transform 250ms ease, box-shadow 250ms ease,
     color 250ms ease;
   transition: transform 250ms ease, box-shadow 250ms ease, color 250ms ease;
+
+  &:hover {
+    @extend .shadow-hover;
+  }
 }
 
-%box-hover {
+.shadow-hover {
   -webkit-transform: translateY(-0.25rem);
   -ms-transform: translateY(-0.25rem);
   transform: translateY(-0.25rem);
@@ -14,12 +18,12 @@
     0px 5px 10px rgba(var(--bs-secondary-rgb), 0.16);
 }
 
-%box-animate {
+.rainbow-animate {
   animation: post-rainbow-border 5s infinite;
   background: linear-gradient(0deg, orange, yellow, green, cyan, blue, violet);
 }
 
-%box-elements {
+.rainbow-elements {
   position: relative;
 
   & > * {
@@ -45,10 +49,8 @@
   }
 
   &:hover {
-    @extend %box-hover;
-
     &::before {
-      @extend %box-animate;
+      @extend .rainbow-animate;
     }
   }
 }

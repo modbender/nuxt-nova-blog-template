@@ -2,16 +2,16 @@
   <div class="row mx-0 mx-md-5">
     <div class="col text-center">
       <div class="dropdown">
+        <button
+          type="button"
+          class="btn dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <Icon name="mdi:share-variant" class="mx-1" />
+          Share
+        </button>
         <ClientOnly>
-          <button
-            type="button"
-            class="btn dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <Icon name="mdi:share-variant" class="mx-1" />
-            Share
-          </button>
           <ul class="dropdown-menu">
             <li>
               <a class="dropdown-item" @click="copyLink" href="#">

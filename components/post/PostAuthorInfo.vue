@@ -1,9 +1,10 @@
 <template>
   <div class="row text-center text-md-start">
     <div class="col-md-auto">
-      <a
+      <NuxtLink
+        id="identity"
         class="h3 text-decoration-none text-primary"
-        :href="`/author/${author.id}`"
+        :to="`/author/${author.id}`"
       >
         <NuxtImg
           preload
@@ -17,18 +18,18 @@
           :alt="author.attributes.username"
           v-if="!!authorImage"
         />
-      </a>
+      </NuxtLink>
     </div>
 
     <div class="col">
       <div class="flex flex-column mb-2 mt-3 mt-md-0">
-        <a
+        <NuxtLink
           class="h4 text-decoration-none text-body-emphasis"
-          :href="`/author/${author.id}`"
+          :to="`/author/${author.id}`"
         >
           <Icon class="me-1 mb-1" name="mdi:link-variant" />
           <strong>{{ author.attributes.username }}</strong>
-        </a>
+        </NuxtLink>
       </div>
       <p v-if="!!author.attributes.description">
         {{ author.attributes.description }}

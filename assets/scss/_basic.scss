@@ -1,3 +1,9 @@
+body {
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body,
 #__nuxt {
   display: flex;
@@ -36,11 +42,14 @@ li {
   width: 100%;
 }
 
-.post-box {
-  @extend %box-transitions;
-  @extend %box-elements;
+.post-box-grid,
+.author-box {
+  @extend .highlight-transitions;
+  @extend .rainbow-elements;
 
-  &, &::before, &::after {
+  &,
+  &::before,
+  &::after {
     border-radius: var(--bs-card-border-radius);
   }
 
@@ -52,7 +61,7 @@ li {
     @extend .p-2;
     object-fit: cover;
 
-    @extend %box-transitions;
+    @extend .highlight-transitions;
   }
 }
 

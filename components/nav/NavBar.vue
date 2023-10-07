@@ -2,7 +2,7 @@
   <header class="navbar navbar-expand-lg bg-body-tertiary">
     <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
       <NuxtLink class="navbar-brand" to="/">
-        {{ $config.public.siteName }}
+        {{ $config.public.site.name }}
       </NuxtLink>
       <div
         class="d-flex d-md-none flex-row justify-content-center ms-auto me-2"
@@ -28,7 +28,7 @@
           />
         </button>
       </div>
-      <!-- <button
+      <button
         type="button"
         class="navbar-toggler"
         data-bs-toggle="collapse"
@@ -38,8 +38,24 @@
         aria-label="Toggle navbar"
       >
         <span class="navbar-toggler-icon"></span>
-      </button> -->
+      </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li
+            class="nav-item"
+            v-for="listPage in listingPages"
+            :key="listPage.name"
+          >
+            <NuxtLink
+              class="nav-link"
+              active-class="active"
+              :aria-current="$route.path === listPage.link ? 'page' : null"
+              :to="listPage.link"
+            >
+              {{ listPage.name }}
+            </NuxtLink>
+          </li>
+        </ul>
         <ul class="navbar-nav ms-md-auto d-none d-md-flex mb-lg-0">
           <li class="nav-item">
             <button
@@ -85,4 +101,10 @@ const currentModeIcon = computed(() => colorModeIcons[colorMode.preference]);
 const toggleColorMode = () => {
   colorMode.preference = colorMode.preference === "dark" ? "light" : "dark";
 };
+
+const listingPages = [
+  { name: "Posts", link: "/list/posts" },
+  { name: "Authors", link: "/list/authors" },
+  { name: "Tags", link: "/list/tags" },
+];
 </script>

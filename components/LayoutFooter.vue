@@ -1,6 +1,19 @@
 <template>
   <div class="mt-auto bg-body-tertiary">
     <footer class="container">
+      <ul class="nav justify-content-center my-2">
+        <li v-for="infoPage in infoPages" class="nav-item" :key="infoPage.name">
+          <NuxtLink
+            class="nav-link text-body-secondary"
+            active-class="active"
+            :aria-current="$route.path === infoPage.link ? 'page' : null"
+            :to="infoPage.link"
+          >
+            {{ infoPage.name }}
+          </NuxtLink>
+        </li>
+      </ul>
+      <hr />
       <div
         class="d-flex flex-wrap justify-content-between align-items-center my-4"
       >
@@ -51,4 +64,19 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const infoPages = [
+  {
+    name: "About Us",
+    link: "/about",
+  },
+  {
+    name: "Terms & Conditions",
+    link: "/term",
+  },
+  {
+    name: "Privacy Policy",
+    link: "/privacy",
+  },
+];
+</script>
