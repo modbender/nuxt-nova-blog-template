@@ -1,5 +1,6 @@
 <template>
   <NuxtImg
+    quality="90"
     format="webp"
     :src="refinedSrc"
     :height="height"
@@ -9,8 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { joinURL } from "ufo";
-
 const props = defineProps({
   src: {
     type: String,

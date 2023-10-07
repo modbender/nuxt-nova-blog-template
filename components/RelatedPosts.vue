@@ -9,8 +9,10 @@
       :key="relatedPost.id"
     >
       <div class="card-body p-4">
-        <div class="h5 card-title">{{ relatedPost.attributes.title }}</div>
-        <p class="card-text text-truncate">
+        <div class="h5 card-title">
+          <strong>{{ relatedPost.attributes.title }}</strong>
+        </div>
+        <p class="card-text text-truncate text-body-secondary">
           {{ relatedPost.attributes.description }}
         </p>
       </div>
@@ -75,7 +77,7 @@ const relatedPostStyles = (relatedPost) => {
     ? useStrapiMedia(relatedPost.attributes.featuredImage.data.attributes.url)
     : config.public.postFeaturedImagePlaceholder;
 
-  const imgUrl = img(currentUrl, { height: 200, quality: 60, format: "webp" });
+  const imgUrl = img(currentUrl, { height: 100, quality: 60, format: "webp" });
   return { backgroundImage: `url('${imgUrl}')` };
 };
 </script>

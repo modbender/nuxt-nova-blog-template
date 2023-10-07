@@ -4,19 +4,18 @@
     class="featured-container"
     :style="backgroundStyles"
   ></div>
+  <NuxtImg
+    preload
+    width="500"
+    quality="80"
+    format="webp"
+    sizes="100vw xs:360px sm:700px"
+    class="img-fluid w-100 d-block d-md-none mb-5"
+    v-if="!!featuredImage"
+    :src="featuredImageUrl"
+    :alt="post.attributes.title"
+  />
   <div class="container-post mx-auto my-5 px-md-4">
-    <NuxtImg
-      preload
-      width="600"
-      quality="80"
-      format="webp"
-      sizes="100vw sm:340px md:600px"
-      class="img-fluid w-100 d-block d-md-none mb-5"
-      v-if="!!featuredImage"
-      :src="featuredImageUrl"
-      :alt="post.attributes.title"
-    />
-
     <h1 class="mb-4">
       <strong>{{ post.attributes.title }}</strong>
     </h1>
@@ -135,7 +134,11 @@ const authorData = post.attributes.author?.data;
 const backgroundStyles = computed(() => {
   const imgUrl = img(
     featuredImageUrl ?? config.public.postFeaturedImagePlaceholder,
-    { preload: true, height: 700, quality: 90, format: "webp" }
+    {
+      height: 700,
+      format: "webp",
+      quality: 90,
+    }
   );
   return { backgroundImage: `url('${imgUrl}')` };
 });

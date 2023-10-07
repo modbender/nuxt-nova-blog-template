@@ -6,8 +6,8 @@
     <NuxtImg
       preload
       width="380"
-      height="290"
-      quality="75"
+      height="214"
+      quality="70"
       format="webp"
       sizes="80vw xs:290px sm:310px md:270px lg:390px"
       class="card-img-top"

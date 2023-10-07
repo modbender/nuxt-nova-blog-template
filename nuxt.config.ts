@@ -54,7 +54,13 @@ export default defineNuxtConfig({
     "nuxt-icon", // icons: https://icones.js.org/, doc: https://nuxt.com/modules/icon
   ],
 
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
 
   nitro: {
     prerender: {
@@ -115,12 +121,15 @@ export default defineNuxtConfig({
         include: ["/p/**"],
         // give blog posts slightly higher priority (this is optional)
         defaults: { priority: 0.9 },
+        exclude: ["/tag/**", "/author/**"],
       },
       tags: {
         include: ["/tag/**"],
+        exclude: ["/p/**", "/author/**"],
       },
       authors: {
         include: ["/author/**"],
+        exclude: ["/p/**", "/tag/**"],
       },
       pages: {
         exclude: ["/p/**", "/tag/**", "/author/**"],

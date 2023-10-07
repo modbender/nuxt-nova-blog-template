@@ -24,10 +24,10 @@
               type="search"
               role="search"
               class="form-control"
-              placeholder="Type here..."
-              aria-label="Search"
-              aria-describedby="basic-search"
               v-model="react.searchText"
+              placeholder="Type here..."
+              aria-describedby="basic-search"
+              aria-label="Search"
             />
           </form>
         </div>
