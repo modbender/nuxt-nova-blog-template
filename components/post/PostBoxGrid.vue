@@ -5,7 +5,6 @@
   >
     <NuxtImg
       preload
-      placeholder
       width="380"
       height="290"
       quality="70"
