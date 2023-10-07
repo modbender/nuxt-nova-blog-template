@@ -65,7 +65,7 @@
 </template>
 
 <script setup>
-const infoPages = [
+const infoPages = ref([
   {
     name: "About Us",
     link: "/about",
@@ -78,5 +78,5 @@ const infoPages = [
     name: "Privacy Policy",
     link: "/privacy",
   },
-];
+]);
 </script>

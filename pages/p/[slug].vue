@@ -9,11 +9,10 @@
     width="500"
     quality="80"
     format="webp"
-    sizes="100vw xs:360px sm:700px"
     class="img-fluid w-100 d-block d-md-none mb-5"
-    v-if="!!featuredImage"
-    :src="featuredImageUrl"
     :alt="post.attributes.title"
+    :src="featuredImageUrl"
+    v-if="!!featuredImage"
   />
   <div class="container-post mx-auto my-5 px-md-4">
     <h1 class="mb-4">

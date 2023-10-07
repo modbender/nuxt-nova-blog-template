@@ -5,11 +5,11 @@
   >
     <NuxtImg
       preload
+      placeholder
       width="380"
-      height="214"
+      height="290"
       quality="70"
       format="webp"
-      sizes="80vw xs:290px sm:310px md:270px lg:390px"
       class="card-img-top"
       :src="featuredImage"
       :alt="post.attributes.title"

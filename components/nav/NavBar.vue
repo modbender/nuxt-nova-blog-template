@@ -102,9 +102,9 @@ const toggleColorMode = () => {
   colorMode.preference = colorMode.preference === "dark" ? "light" : "dark";
 };
 
-const listingPages = [
+const listingPages = ref([
   { name: "Posts", link: "/list/posts" },
   { name: "Authors", link: "/list/authors" },
   { name: "Tags", link: "/list/tags" },
-];
+]);
 </script>
