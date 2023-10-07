@@ -4656,11 +4656,6 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash-es@^4.17.21:
-  version "4.17.21"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
-  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
-
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
@@ -6057,16 +6052,6 @@ nuxi@^3.9.0:
   optionalDependencies:
     fsevents "~2.3.3"
 
-nuxt-delay-hydration@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/nuxt-delay-hydration/-/nuxt-delay-hydration-1.2.2.tgz#80b41cf69769fa31f7ec26ead3a69fe769308815"
-  integrity sha512-vQ/fqPl7cstgfS26VrPm4JWgz4hHxEPEc44jdIl3p5lWPvrXbKfIgOos0pS5GuB3Jndd19+W2g0ghzAIxf1IKw==
-  dependencies:
-    "@nuxt/kit" "^3.7.3"
-    lodash-es "^4.17.21"
-    packrup "^0.1.0"
-    radix3 "^1.1.0"
-
 nuxt-disqus@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/nuxt-disqus/-/nuxt-disqus-1.0.1.tgz#c24707091d71ae769368c5f02a678abfb4654c2e"
@@ -6414,11 +6399,6 @@ p-map@^4.0.0:
   integrity sha512-/bjOqmgETBYB5BoEeGVea8dmvHb2m9GLy1E9W43yeyfP6QQCZGFNa+XRceJEuDB6zqr+gKpIAmlLebMpykw/MQ==
   dependencies:
     aggregate-error "^3.0.0"
-
-packrup@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/packrup/-/packrup-0.1.0.tgz#8a2d865a45aaee9807504046548678fa3382b6e3"
-  integrity sha512-HnUl9ztHGty5ZK13WM8Q7854SWPKH/eCT+MiTO0P1qCu1Y4S5PPJ8E9MwD3cnjSr7PUPzXDnmOVJIKM043OfJQ==
 
 pacote@^17.0.4:
   version "17.0.4"
