@@ -9,6 +9,7 @@
       height="290"
       quality="70"
       format="webp"
+      sizes="xs:290px sm:450px md:305px lg:380px"
       class="card-img-top"
       :src="featuredImage"
       :alt="post.attributes.title"

@@ -37,6 +37,7 @@ onBeforeMount(() => {
   opacity: 0.6;
   transition: opacity 0.2s linear, bottom 0.3s linear, display 0.4s linear;
   bottom: 50px;
+  z-index: 999;
 
   &:hover {
     opacity: 1;

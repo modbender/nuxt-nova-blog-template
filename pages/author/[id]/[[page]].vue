@@ -5,12 +5,31 @@
     :style="backgroundStyles"
   ></div>
   <div class="container-post mx-auto my-5 px-4">
+    <hr />
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li
+          class="breadcrumb-item"
+          :class="{ active: $route.path === breadcrumb.item }"
+          v-for="breadcrumb in breadcrumbItems"
+          :key="breadcrumb.name"
+        >
+          <strong v-if="$route.path === breadcrumb.item">
+            {{ breadcrumb.name }}
+          </strong>
+          <NuxtLink v-else class="text-decoration-none" :to="breadcrumb.item">
+            {{ breadcrumb.name }}
+          </NuxtLink>
+        </li>
+      </ol>
+    </nav>
+    <hr class="mb-5" />
     <div class="text-center">
       <NuxtImg
         preload
         width="250"
         height="250"
-        quality="85"
+        quality="80"
         format="webp"
         class="rounded-circle"
         v-if="!!pictureUrl"
@@ -20,7 +39,7 @@
       <h1 class="mt-3">
         <strong>{{ author.username }}</strong>
       </h1>
-      <template v-if="!!author.shareLinks">
+      <template v-if="!!Object.keys(author.shareLinks).length > 0">
         <hr class="mt-4 mt-2" />
         <div>
           <div class="mb-2">
@@ -183,6 +202,12 @@ const backgroundStyles = computed(() => {
   return { backgroundImage: `url('${imgUrl}')` };
 });
 
+const breadcrumbItems = [
+  { name: "Home", item: "/" },
+  { name: "Author List", item: "/list/authors" },
+  { name: unref(author).username, item: route.path },
+];
+
 const imageMetaData =
   pictureOgImageData.length > 0
     ? {
@@ -214,6 +239,9 @@ useSchemaOrg([
           image: pictureOgImageData[0].url,
         }
       : {}),
+  }),
+  defineBreadcrumb({
+    itemListElement: breadcrumbItems,
   }),
 ]);
 

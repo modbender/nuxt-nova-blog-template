@@ -44,7 +44,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/strapi",
     "@nuxtseo/module", // doc https://nuxtseo.com/
-    // "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/
+    "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/
     // "@nuxtjs/google-adsense", // source: https://nuxt.com/modules/google-adsense
     "@nuxtjs/color-mode", // doc: https://color-mode.nuxtjs.org/
     "@nuxt/image-edge",
@@ -69,12 +69,11 @@ export default defineNuxtConfig({
     },
   },
 
-  // googleFonts: {
-  //   display: "swap",
-  //   families: {
-  //     Roboto: true,
-  //   },
-  // },
+  googleFonts: {
+    families: {
+      Roboto: true,
+    },
+  },
 
   strapi: {
     prefix: "/api",
