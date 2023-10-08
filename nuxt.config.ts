@@ -32,11 +32,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     // All pages on ISR - cached until next build clears it
-    "/author/**": { isr: true },
-
-    "/nav/**": { isr: true },
-
-    "/p/**": { isr: true },
+    "/**": { isr: true },
   },
 
   css: ["@/assets/scss/main.scss"],
@@ -63,6 +59,14 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ["/"],
     },
+  },
+
+  colorMode: {
+    // doc: https://color-mode.nuxtjs.org/
+    preference: "dark",
+    dataValue: "bs-theme",
+    fallback: "light",
+    classSuffix: "",
   },
 
   // googleFonts: {
@@ -130,14 +134,6 @@ export default defineNuxtConfig({
         exclude: ["/p/**", "/tag/**", "/author/**"],
       },
     },
-  },
-
-  colorMode: {
-    // doc: https://color-mode.nuxtjs.org/
-    preference: "dark",
-    dataValue: "bs-theme",
-    fallback: "light",
-    classSuffix: "",
   },
 
   disqus: {
