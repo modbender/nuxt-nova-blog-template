@@ -6,9 +6,10 @@
   ></div>
   <NuxtImg
     preload
-    width="500"
     quality="80"
     format="webp"
+    :width="featuredImage.attributes.width"
+    :height="featuredImage.attributes.height"
     class="img-fluid w-100 d-block d-md-none mb-5"
     :alt="post.attributes.title"
     :src="featuredImageUrl"

@@ -16,6 +16,7 @@
     "@nuxtjs/strapi": "1.9.3",
     "@nuxtseo/module": "2.0.0-beta.15",
     "@types/node": "20.8.3",
+    "@vite-pwa/nuxt": "^0.1.1",
     "nuxt": "3.7.4",
     "nuxt-disqus": "1.0.1",
     "nuxt-icon": "0.5.0",

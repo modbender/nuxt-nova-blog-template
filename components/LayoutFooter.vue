@@ -4,8 +4,9 @@
       <ul class="nav justify-content-center my-2">
         <li v-for="infoPage in infoPages" class="nav-item" :key="infoPage.name">
           <NuxtLink
-            class="nav-link text-body-secondary"
+            :prefetch="false"
             active-class="active"
+            class="nav-link text-body-secondary"
             :aria-current="$route.path === infoPage.link ? 'page' : null"
             :to="infoPage.link"
           >

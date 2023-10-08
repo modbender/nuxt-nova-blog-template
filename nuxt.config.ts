@@ -1,4 +1,38 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
+
+const siteLogoIcons = [
+  {
+    src: "images/logo/nuxt-48.png",
+    sizes: "48x48",
+    type: "image/png",
+  },
+  {
+    src: "images/logo/nuxt-72.png",
+    sizes: "72x72",
+    type: "image/png",
+  },
+  {
+    src: "images/logo/nuxt-96.png",
+    sizes: "96x96",
+    type: "image/png",
+  },
+  {
+    src: "images/logo/nuxt-144.png",
+    sizes: "144x144",
+    type: "image/png",
+  },
+  {
+    src: "images/logo/nuxt-168.png",
+    sizes: "168x168",
+    type: "image/png",
+  },
+  {
+    src: "images/logo/nuxt-192.png",
+    sizes: "192x192",
+    type: "image/png",
+  },
+];
+
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
@@ -10,6 +44,7 @@ export default defineNuxtConfig({
 
       defaultLocale: "en",
       titleSeparator: "|", // Best options: | or -
+      siteIcons: siteLogoIcons,
 
       identity: {
         type: "Nuxt Nova",
@@ -32,12 +67,13 @@ export default defineNuxtConfig({
 
   routeRules: {
     // All pages on ISR - cached until next build clears it
-    "/**": { isr: true },
+    "/**": { isr: 3600 },
   },
 
   css: ["@/assets/scss/main.scss"],
 
   modules: [
+    "@vite-pwa/nuxt",
     "@nuxtjs/strapi",
     "@nuxtseo/module", // doc https://nuxtseo.com/
     // "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/
@@ -50,15 +86,12 @@ export default defineNuxtConfig({
     "nuxt-icon", // icons: https://icones.js.org/, doc: https://nuxt.com/modules/icon
   ],
 
-  devtools: {
-    enabled: true,
+  experimental: {
+    payloadExtraction: false,
   },
 
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ["/"],
-    },
+  devtools: {
+    enabled: true,
   },
 
   colorMode: {
@@ -139,5 +172,35 @@ export default defineNuxtConfig({
   disqus: {
     // get shortname: https://disqus.com/admin/
     shortname: "nuxt-nova",
+  },
+
+  pwa: {
+    registerType: "autoUpdate",
+    manifest: {
+      name: "Nuxt Nova",
+      short_name: "NuxtNova",
+      display: "standalone",
+      theme_color: "#212529",
+      background_color: "#212529",
+      orientation: "portrait-primary",
+      description: "Nuxt Nova Blog Template",
+      icons: siteLogoIcons,
+    },
+    workbox: {
+      navigateFallback: "/",
+      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+    },
+    client: {
+      installPrompt: true,
+      // you don't need to include this: only for testing purposes
+      // if enabling periodic sync for update use 1 hour or so (periodicSyncForUpdates: 3600)
+      periodicSyncForUpdates: 20,
+    },
+    // devOptions: {
+    //   enabled: true,
+    //   suppressWarnings: true,
+    //   navigateFallbackAllowlist: [/^\/$/],
+    //   type: "module",
+    // },
   },
 });

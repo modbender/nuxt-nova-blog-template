@@ -1,4 +1,5 @@
 <template>
+  <VitePwaManifest />
   <NavBar />
   <main>
     <slot />
