@@ -16,7 +16,7 @@ publish = "dist"
 
 # Generate static site
 
-command = "nuxi generate"
+command = "npx nuxi generate"
 
 environment = { NODE_VERSION = "18.18.0" }
 
