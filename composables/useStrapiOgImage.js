@@ -50,7 +50,7 @@ export default function (title, imageData) {
     const imgUrl = img(image.url, {
       width: image.width,
       height: image.height,
-      format: "webp",
+      format: "jpg",
       quality: 90,
     });
     return {

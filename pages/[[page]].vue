@@ -8,6 +8,9 @@
 <script setup>
 const route = useRoute();
 const { find } = useStrapi();
+const defaultOgImage = useDefaultOgImage();
+
+// console.log(defaultOgImage);
 
 const currentPage = computed(() => route.params?.page || 1);
 
@@ -25,17 +28,18 @@ const { data: postList } = await useAsyncData(
     })
 );
 
-useSeoMeta({
-  title: "Home",
-  description: useRuntimeConfig().public.site.description,
-  twitterCard: "summary_large_image",
-});
-
 useSchemaOrg([
   defineBreadcrumb({
     itemListElement: [{ name: "Home", item: "/" }],
   }),
 ]);
+
+useSeoMeta({
+  title: "Home",
+  description: useRuntimeConfig().public.site.description,
+  twitterCard: "summary_large_image",
+  
+});
 
 definePageMeta({
   validate: async (route) => {
