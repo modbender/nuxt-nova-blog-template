@@ -31,6 +31,16 @@ const siteLogoIcons = [
     sizes: "192x192",
     type: "image/png",
   },
+  {
+    src: "images/logo/nuxt-256.png",
+    sizes: "256x256",
+    type: "image/png",
+  },
+  {
+    src: "images/logo/nuxt-512.png",
+    sizes: "512x512",
+    type: "image/png",
+  },
 ];
 
 export default defineNuxtConfig({
