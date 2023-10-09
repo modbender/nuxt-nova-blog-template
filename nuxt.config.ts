@@ -65,9 +65,17 @@ export default defineNuxtConfig({
     },
   },
 
-  routeRules: {
-    // All pages on ISR - cached until next build clears it
-    "/**": { isr: 3600 },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+    publicAssets: [
+      {
+        baseURL: "images",
+        dir: "public/images",
+        maxAge: 60 * 60 * 24 * 7, // 7 days
+      },
+    ],
   },
 
   css: ["@/assets/scss/main.scss"],
@@ -85,10 +93,6 @@ export default defineNuxtConfig({
     "nuxt-disqus", // source: https://github.com/modbender/nuxt-disqus
     "nuxt-icon", // icons: https://icones.js.org/, doc: https://nuxt.com/modules/icon
   ],
-
-  experimental: {
-    payloadExtraction: false,
-  },
 
   devtools: {
     enabled: true,
@@ -115,6 +119,7 @@ export default defineNuxtConfig({
 
   content: {
     highlight: {
+      // preload: ["java"],
       theme: {
         // Default theme (same as single string)
         default: "light-plus",
