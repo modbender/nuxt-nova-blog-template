@@ -68,6 +68,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
+      routes: ["/"],
     },
     publicAssets: [
       {
@@ -76,6 +77,11 @@ export default defineNuxtConfig({
         maxAge: 60 * 60 * 24 * 7, // 7 days
       },
     ],
+  },
+
+  // Required for Netlify deployment
+  routeRules: {
+    "/**": { isr: true },
   },
 
   css: ["@/assets/scss/main.scss"],
