@@ -218,11 +218,11 @@ export default defineNuxtConfig({
       // if enabling periodic sync for update use 1 hour or so (periodicSyncForUpdates: 3600)
       periodicSyncForUpdates: 20,
     },
-    // devOptions: {
-    //   enabled: true,
-    //   suppressWarnings: true,
-    //   navigateFallbackAllowlist: [/^\/$/],
-    //   type: "module",
-    // },
+    devOptions: {
+      enabled: false,
+      // suppressWarnings: true,
+      // navigateFallbackAllowlist: [/^\/$/],
+      // type: "module",
+    },
   },
 });
