@@ -197,7 +197,6 @@ export default defineNuxtConfig({
 
   pwa: {
     registerType: "autoUpdate",
-    manifestFilename: "manifest.json",
     manifest: {
       name: "Nuxt Nova",
       short_name: "NuxtNova",
