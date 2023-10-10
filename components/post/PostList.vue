@@ -36,7 +36,6 @@ const { postList, overrideStyle } = toRefs(props);
 
 let currentStyle = computed(() => {
   const overrideStyleValue = unref(overrideStyle);
-  console.log(overrideStyleValue);
 
   if (!!overrideStyleValue) {
     if (!styleTypes.includes(overrideStyleValue)) {
@@ -50,7 +49,6 @@ let currentStyle = computed(() => {
 
   const postListStyle =
     useRuntimeConfig().public.nuxtNovaControl?.postListStyle;
-  console.log(postListStyle);
 
   if (!!postListStyle) {
     if (!styleTypes.includes(postListStyle)) {
