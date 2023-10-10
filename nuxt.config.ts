@@ -68,10 +68,10 @@ export default defineNuxtConfig({
         facebook: "#",
         instagram: "#",
       },
-    },
 
-    nuxtNovaControl: {
-      postListStyle: "grid", //either 'grid' or 'list',
+      nuxtNovaControl: {
+        postListStyle: "grid", //either 'grid' or 'list',
+      },
     },
   },
 

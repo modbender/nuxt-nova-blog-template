@@ -6,7 +6,7 @@
   ></div>
   <div class="container-post mx-auto my-5 px-4">
     <hr />
-    <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb" id="breadcrumb">
       <ol class="breadcrumb">
         <li
           class="breadcrumb-item"

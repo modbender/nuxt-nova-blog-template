@@ -53,9 +53,9 @@
     </template>
     <hr v-else class="my-5 mt-2" />
     <div id="article" class="markdown-body">
-      <MDC :value="post.attributes.content" tag="article" />
+      <MDC :value="post.attributes.content" tag="article" id="article" />
     </div>
-    <template v-if="post.attributes.share !== false">
+    <template v-if="post.attributes.showAuthor !== false">
       <hr class="mt-5 mb-2" />
       <PostShare :title="post.attributes.title" />
     </template>

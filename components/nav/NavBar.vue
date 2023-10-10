@@ -1,7 +1,7 @@
 <template>
   <header class="navbar navbar-expand-lg bg-body-tertiary">
     <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
-      <NuxtLink class="navbar-brand" to="/">
+      <NuxtLink class="navbar-brand" id="logo" to="/">
         {{ $config.public.site.name }}
       </NuxtLink>
       <div

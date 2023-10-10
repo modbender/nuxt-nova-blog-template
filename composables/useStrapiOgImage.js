@@ -1,5 +1,5 @@
 export default function (title, imageData) {
-  if (!imageData) return null;
+  if (!imageData) return [];
 
   var ogArray = [];
 

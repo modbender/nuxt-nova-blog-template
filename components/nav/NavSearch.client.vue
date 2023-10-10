@@ -10,6 +10,9 @@
       <div class="modal-content">
         <div class="modal-header">
           <strong>Search</strong>
+          <a class="ms-2" target="_blank" href="/search">
+            <Icon name="mdi:launch" width="20" height="20" />
+          </a>
           <button
             type="button"
             class="btn-close"
@@ -33,11 +36,7 @@
         </div>
         <div class="modal-body">
           <div
-            v-if="
-              searchText !== '' &&
-              searchText.length > 2 &&
-              react.searchPosts.length > 0
-            "
+            v-if="searchText !== '' && searchText.length > 2"
             class="list-group border"
           >
             <template v-if="!!react.searchPosts?.length > 0">
@@ -64,19 +63,20 @@
                     {{ tag.attributes.name }}
                     <template
                       v-if="i !== post.attributes.tags?.data.length - 1"
-                      >{{ ", " }}</template
                     >
+                      {{ ", " }}
+                    </template>
                   </template>
                 </small>
               </NuxtLink>
             </template>
-            <div v-else class="p-5 text-center display-4">No Posts to show</div>
+            <div v-else class="p-5 text-center display-6">No results found</div>
           </div>
           <div
             v-if="searchText.length < 3"
             class="p-5 text-center d-flex flex-column"
           >
-            <strong class="display-4">Type to search</strong>
+            <strong class="display-6">Type to search</strong>
             <small>Min 3 characters</small>
           </div>
         </div>

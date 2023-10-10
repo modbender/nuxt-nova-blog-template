@@ -1,12 +1,18 @@
 <template>
   <template v-if="!!postList.data && postList.data.length > 0">
-    <div class="row">
+    <div v-if="currentStyle === 'grid'" class="row">
       <div
         class="col-12 col-md-6 col-lg-4 my-2"
         v-for="post in postList.data"
         :key="post.id"
       >
         <PostBoxGrid :post="post" />
+      </div>
+    </div>
+    <div v-else class="row">
+      <div class="col-12 my-2" v-for="post in postList.data" :key="post.id">
+        <PostBoxDetailed :post="post" />
+        <hr class="my-1" />
       </div>
     </div>
     <div class="mt-5 d-flex flex-column">
@@ -17,34 +23,45 @@
 </template>
 
 <script setup>
-const config = useRuntimeConfig();
+const styleTypes = ["grid", "list"];
 
 const props = defineProps({
   postList: {
     required: true,
   },
-  overrideStyle: {
-    type: Boolean,
-    default: () => false,
-  },
+  overrideStyle: String,
 });
 
 const { postList, overrideStyle } = toRefs(props);
 
-const styleTypes = ["grid", "list"];
+let currentStyle = computed(() => {
+  const overrideStyleValue = unref(overrideStyle);
+  console.log(overrideStyleValue);
 
-const currentStyle = computed(() => {
-  let postListStyle = config.nuxtNovaControl.postListStyle;
-
-  if (!styleTypes.includes(postListStyle)) {
-    postListStyle = styleTypes[0];
+  if (!!overrideStyleValue) {
+    if (!styleTypes.includes(overrideStyleValue)) {
+      throw createError({
+        statusCode: 500,
+        statusMessage: "Prop override-style has invalid value",
+      });
+    }
+    return overrideStyleValue;
   }
 
-  if (unref(overrideStyle)) {
-    postListStyle =
-      postListStyle === styleTypes[0] ? styleTypes[1] : styleTypes[0];
-  }
+  const postListStyle =
+    useRuntimeConfig().public.nuxtNovaControl?.postListStyle;
+  console.log(postListStyle);
 
-  return postListStyle;
+  if (!!postListStyle) {
+    if (!styleTypes.includes(postListStyle)) {
+      throw createError({
+        statusCode: 500,
+        statusMessage: "Config nuxtNovaControl.postListStyle has invalid value",
+      });
+    }
+    return postListStyle;
+  } else {
+    return styleTypes[0];
+  }
 });
 </script>

@@ -16,11 +16,7 @@
       />
     </div>
     <hr />
-    <template
-      v-if="
-        searchText !== '' && searchText.length > 2 && searchResults.length > 0
-      "
-    >
+    <template v-if="searchText !== '' && searchText.length > 2">
       <template v-if="!!searchResults && searchResults.length > 0">
         <div class="row">
           <div
@@ -33,7 +29,7 @@
           </div>
         </div>
       </template>
-      <div v-else class="p-5 text-center display-4">No results found</div>
+      <div v-else class="p-5 text-center display-6">No results found</div>
     </template>
     <div
       v-if="searchText.length < 3"
