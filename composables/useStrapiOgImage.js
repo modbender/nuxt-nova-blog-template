@@ -53,6 +53,7 @@ export default function (title, imageData) {
       format: "jpg",
       quality: 90,
     });
+
     return {
       ...image,
       url: imgUrl,

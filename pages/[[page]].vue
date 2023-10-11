@@ -8,7 +8,8 @@
 <script setup>
 const route = useRoute();
 const { find } = useStrapi();
-// const defaultOgImage = useDefaultOgImage();
+
+const defaultOgImage = useDefaultOgImage();
 
 const currentPage = computed(() => route.params?.page || 1);
 
@@ -36,6 +37,7 @@ useSeoMeta({
   title: "Home",
   description: useRuntimeConfig().public.site.description,
   twitterCard: "summary_large_image",
+  ogImage: [...defaultOgImage],
 });
 
 definePageMeta({

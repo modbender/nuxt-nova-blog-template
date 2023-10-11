@@ -1,6 +1,6 @@
 <template>
   <div
-    class="modal fade"
+    class="modal modal-lg fade"
     id="searchModal"
     aria-hidden="true"
     aria-labelledby="searchModalToggleLabel"

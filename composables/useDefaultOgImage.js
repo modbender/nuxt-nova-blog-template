@@ -15,9 +15,9 @@ export default function () {
     const iconHeight = parseInt(iconSizes[1]);
 
     const imgUrl = img(icon.src, {
-      ...defaultImageOpts,
       width: iconWidth,
       height: iconHeight,
+      ...defaultImageOpts,
     });
 
     return {

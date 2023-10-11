@@ -26,7 +26,7 @@
             <a
               class="text-danger"
               aria-label="Go to Youtube Link"
-              :href="$config.public.shareLinks?.youtube ?? '#'"
+              :href="$config.public.socialLinks?.youtube ?? '#'"
               target="_blank"
             >
               <Icon width="24" height="24" name="mdi:youtube" />
@@ -36,7 +36,7 @@
             <a
               class="text-info"
               aria-label="Go to X Link"
-              :href="$config.public.shareLinks?.x ?? '#'"
+              :href="$config.public.socialLinks?.x ?? '#'"
               target="_blank"
             >
               <Icon width="24" height="24" name="mdi:twitter" />
@@ -45,7 +45,7 @@
           <li class="ms-3">
             <a
               aria-label="Go to Facebook Link"
-              :href="$config.public.shareLinks?.facebook ?? '#'"
+              :href="$config.public.socialLinks?.facebook ?? '#'"
               target="_blank"
             >
               <Icon width="24" height="24" name="mdi:facebook" />
@@ -55,7 +55,7 @@
             <a
               class="text-warning"
               aria-label="Go to Instagram Link"
-              :href="$config.public.shareLinks?.instagram ?? '#'"
+              :href="$config.public.socialLinks?.instagram ?? '#'"
               target="_blank"
             >
               <Icon width="24" height="24" name="mdi:instagram" />

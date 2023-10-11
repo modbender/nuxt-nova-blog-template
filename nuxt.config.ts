@@ -57,21 +57,21 @@ export default defineNuxtConfig({
         width: process.env.NUXT_PUBLIC_SITE_FAVICON_WIDTH,
         height: process.env.NUXT_PUBLIC_SITE_FAVICON_HEIGHT,
       },
-      defaultLocale: "en",
-      titleSeparator: "|", // Best options: | or -
+      defaultLocale: process.env.NUXT_PUBLIC_SITE_LOCALE,
+      titleSeparator: process.env.NUXT_PUBLIC_TITLE_SEPARATOR, // Best options: | or -
       siteIcons: siteLogoIcons,
 
-      featuredImagePlaceholder: "/images/placeholder.jpg",
+      featuredImagePlaceholder: "/images/featuredImagePlaceholder.jpg",
 
-      shareLinks: {
-        youtube: "#",
-        x: "#",
-        facebook: "#",
-        instagram: "#",
+      socialLinks: {
+        youtube: process.env.NUXT_PUBLIC_SOCIAL_YOUTUBE_URL,
+        x: process.env.NUXT_PUBLIC_SOCIAL_X_URL,
+        facebook: process.env.NUXT_PUBLIC_SOCIAL_FACEBOOK_URL,
+        instagram: process.env.NUXT_PUBLIC_SOCIAL_INSTAGRAM_URL,
       },
 
       nuxtNovaControl: {
-        postListStyle: "grid", //either 'grid' or 'list',
+        postListStyle: process.env.NUXT_PUBLIC_POST_LIST_STYLE, //either 'grid' or 'list',
       },
     },
   },
@@ -79,7 +79,6 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ["/"],
     },
     publicAssets: [
       {
