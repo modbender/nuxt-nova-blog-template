@@ -48,8 +48,8 @@ export default defineNuxtConfig({
     public: {
       site: {
         url: process.env.NUXT_PUBLIC_SITE_URL || "https://127.0.0.1:3000",
-        name: process.env.SITE_NAME, // Will be displayed on home page
-        description: process.env.SITE_DESCRIPTION,
+        name: process.env.NUXT_PUBLIC_SITE_NAME, // Will be displayed on home page
+        description: process.env.NUXT_PUBLIC_SITE_DESCRIPTION,
       },
 
       defaultLocale: "en",
@@ -183,6 +183,6 @@ export default defineNuxtConfig({
 
   disqus: {
     // get shortname: https://disqus.com/admin/
-    shortname: process.env.DISQUS_SHORTNAME,
+    shortname: process.env.NUXT_PUBLIC_DISQUS_SHORTNAME,
   },
 });
