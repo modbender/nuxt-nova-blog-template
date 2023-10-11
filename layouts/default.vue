@@ -1,5 +1,4 @@
 <template>
-  <VitePwaManifest />
   <NavBar />
   <main>
     <slot />
@@ -18,11 +17,7 @@ const allPosts = await getAllPosts();
 useSchemaOrg([
   defineOrganization({
     name: config.public.site.name,
-    logo: {
-      url: "/favicon.ico",
-      width: 32,
-      height: 32,
-    },
+    logo: config.public.favicon,
   }),
   defineWebSite({
     potentialAction: [

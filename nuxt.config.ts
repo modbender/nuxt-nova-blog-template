@@ -52,11 +52,16 @@ export default defineNuxtConfig({
         description: process.env.NUXT_PUBLIC_SITE_DESCRIPTION,
       },
 
+      favicon: {
+        url: process.env.NUXT_PUBLIC_SITE_FAVICON_URL,
+        width: process.env.NUXT_PUBLIC_SITE_FAVICON_WIDTH,
+        height: process.env.NUXT_PUBLIC_SITE_FAVICON_HEIGHT,
+      },
       defaultLocale: "en",
       titleSeparator: "|", // Best options: | or -
       siteIcons: siteLogoIcons,
 
-      postFeaturedImagePlaceholder: "/images/placeholder.jpg",
+      featuredImagePlaceholder: "/images/placeholder.jpg",
 
       shareLinks: {
         youtube: "#",

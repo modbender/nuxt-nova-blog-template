@@ -75,7 +75,7 @@ const relatedPostStyles = (relatedPost) => {
   const currentUrl = !!relatedPost.attributes.featuredImage?.data?.attributes
     ?.url
     ? useStrapiMedia(relatedPost.attributes.featuredImage.data.attributes.url)
-    : config.public.postFeaturedImagePlaceholder;
+    : config.public.featuredImagePlaceholder;
 
   const imgUrl = img(currentUrl, { height: 100, quality: 60, format: "webp" });
   return { backgroundImage: `url('${imgUrl}')` };

@@ -59,5 +59,5 @@ const { post } = toRefs(props);
 
 const featuredImage = !!unref(post).attributes.featuredImage?.data
   ? useStrapiMedia(unref(post).attributes.featuredImage.data.attributes.url)
-  : config.public.postFeaturedImagePlaceholder;
+  : config.public.featuredImagePlaceholder;
 </script>

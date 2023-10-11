@@ -133,7 +133,7 @@ const authorData = post.attributes.author?.data;
 
 const backgroundStyles = computed(() => {
   const imgUrl = img(
-    featuredImageUrl ?? config.public.postFeaturedImagePlaceholder,
+    featuredImageUrl ?? config.public.featuredImagePlaceholder,
     {
       height: 700,
       format: "webp",
