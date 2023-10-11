@@ -48,17 +48,13 @@ export default defineNuxtConfig({
     public: {
       site: {
         url: process.env.NUXT_PUBLIC_SITE_URL || "https://127.0.0.1:3000",
-        name: "Nuxt Nova", // Will be displayed on home page
-        description: "Nuxt Nova Blog Template",
+        name: process.env.SITE_NAME, // Will be displayed on home page
+        description: process.env.SITE_DESCRIPTION,
       },
 
       defaultLocale: "en",
       titleSeparator: "|", // Best options: | or -
       siteIcons: siteLogoIcons,
-
-      identity: {
-        type: "Nuxt Nova",
-      },
 
       postFeaturedImagePlaceholder: "/images/placeholder.jpg",
 
@@ -97,7 +93,6 @@ export default defineNuxtConfig({
   css: ["@/assets/scss/main.scss"],
 
   modules: [
-    "@vite-pwa/nuxt",
     "@nuxtjs/strapi",
     "@nuxtseo/module", // doc https://nuxtseo.com/
     // "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/
@@ -152,11 +147,7 @@ export default defineNuxtConfig({
     // You could try format: ["avif", "webp"] for more compression
     format: ["webp", "jpg"],
     domains: [
-      "http://127.0.0.1:3000",
-      "http://localhost:3000",
-      "http://127.0.0.1:1337",
-      "http://localhost:1337",
-      "https://nuxt-nova.netlify.app",
+      process.env.NUXT_PUBLIC_SITE_URL as string,
       process.env.STRAPI_URL as string,
     ],
   },
@@ -192,36 +183,6 @@ export default defineNuxtConfig({
 
   disqus: {
     // get shortname: https://disqus.com/admin/
-    shortname: "nuxt-nova",
-  },
-
-  pwa: {
-    registerType: "autoUpdate",
-    manifest: {
-      name: "Nuxt Nova",
-      short_name: "NuxtNova",
-      display: "standalone",
-      theme_color: "#212529",
-      background_color: "#212529",
-      orientation: "portrait-primary",
-      description: "Nuxt Nova Blog Template",
-      icons: siteLogoIcons,
-    },
-    workbox: {
-      navigateFallback: "/",
-      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
-    },
-    client: {
-      installPrompt: true,
-      // you don't need to include this: only for testing purposes
-      // if enabling periodic sync for update use 1 hour or so (periodicSyncForUpdates: 3600)
-      periodicSyncForUpdates: 20,
-    },
-    devOptions: {
-      enabled: false,
-      // suppressWarnings: true,
-      // navigateFallbackAllowlist: [/^\/$/],
-      // type: "module",
-    },
+    shortname: process.env.DISQUS_SHORTNAME,
   },
 });
