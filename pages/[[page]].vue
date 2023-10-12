@@ -2,6 +2,7 @@
   <div class="container mx-auto my-5 px-4">
     <h1 class="h2 border-bottom pb-3 mb-3">Recent Posts</h1>
     <PostList :post-list="postList" />
+    <Ad :container="{ class: 'ad-slot' }" code="1" />
   </div>
 </template>
 

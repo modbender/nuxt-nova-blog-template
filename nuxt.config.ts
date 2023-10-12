@@ -57,6 +57,7 @@ export default defineNuxtConfig({
         width: process.env.NUXT_PUBLIC_SITE_FAVICON_WIDTH,
         height: process.env.NUXT_PUBLIC_SITE_FAVICON_HEIGHT,
       },
+
       defaultLocale: process.env.NUXT_PUBLIC_SITE_LOCALE,
       titleSeparator: process.env.NUXT_PUBLIC_TITLE_SEPARATOR, // Best options: | or -
       siteIcons: siteLogoIcons,
@@ -69,6 +70,8 @@ export default defineNuxtConfig({
         facebook: process.env.NUXT_PUBLIC_SOCIAL_FACEBOOK_URL,
         instagram: process.env.NUXT_PUBLIC_SOCIAL_INSTAGRAM_URL,
       },
+
+      gtagId: "",
 
       nuxtNovaControl: {
         postListStyle: process.env.NUXT_PUBLIC_POST_LIST_STYLE, //either 'grid' or 'list',
@@ -100,7 +103,7 @@ export default defineNuxtConfig({
     "@nuxtjs/strapi",
     "@nuxtseo/module", // doc https://nuxtseo.com/
     // "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/
-    // "@nuxtjs/google-adsense", // source: https://nuxt.com/modules/google-adsense
+    "@nuxtjs/google-adsense", // source: https://nuxt.com/modules/google-adsense
     "@nuxtjs/color-mode", // doc: https://color-mode.nuxtjs.org/
     "@nuxt/image-edge",
     "@nuxt/content",
@@ -134,7 +137,6 @@ export default defineNuxtConfig({
 
   content: {
     highlight: {
-      // preload: ["java"],
       theme: {
         // Default theme (same as single string)
         default: "light-plus",
@@ -156,11 +158,12 @@ export default defineNuxtConfig({
     ],
   },
 
-  // "google-adsense": {
-  //   // options: https://nuxt.com/modules/google-adsense
-  //   id: "ca-pub-123456789",
-  //   test: true, // remove or set to false when having approved adsense account id
-  // },
+  googleAdsense: {
+    // options: https://nuxt.com/modules/google-adsense
+    // id: "ca-pub-123456789",
+    onPageLoad: true,
+    test: true, // remove or set to false when having approved adsense account id
+  },
 
   sitemap: {
     // manually chunk into multiple sitemaps

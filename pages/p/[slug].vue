@@ -72,6 +72,7 @@
     <hr class="mb-5 mt-2" />
     <RelatedPosts :post="post" />
   </div>
+  <Ad :container="{ class: 'ad-slot' }" code="1" />
   <div v-if="post.comments !== false" class="container mb-5">
     <DisqusComments :identifier="url.pathname" />
   </div>

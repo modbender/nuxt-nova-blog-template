@@ -34,6 +34,14 @@ li {
   max-width: 728px;
 }
 
+.ad-slot {
+  @extend .d-flex;
+  @extend .flex-wrap;
+  @extend .justify-content-center;
+  @extend .align-items-center;
+  @extend .my-3;
+}
+
 .featured-container {
   @extend .d-none;
   @extend .d-md-block;

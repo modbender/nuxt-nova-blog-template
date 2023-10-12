@@ -48,6 +48,7 @@
         </NuxtLink>
       </div>
     </div>
+    <Ad :container="{ class: 'ad-slot' }" code="1" />
   </div>
 </template>
 

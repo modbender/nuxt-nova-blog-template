@@ -46,6 +46,7 @@
       <Pagination :count="tagList.meta.pagination.pageCount" />
     </template>
     <div v-else class="p-5 text-center display-4">No Tags to show</div>
+    <Ad :container="{ class: 'ad-slot' }" code="1" />
   </div>
 </template>
 

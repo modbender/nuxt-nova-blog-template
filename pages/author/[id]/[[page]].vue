@@ -141,6 +141,7 @@
       </div>
     </div>
     <div v-else class="p-5 text-center display-6">No posts yet</div>
+    <Ad :container="{ class: 'ad-slot' }" code="1" />
   </div>
 </template>
 

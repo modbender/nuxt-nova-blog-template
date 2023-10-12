@@ -26,6 +26,7 @@
     </nav>
     <hr />
     <PostList :post-list="tagPosts" />
+    <Ad :container="{ class: 'ad-slot' }" code="1" />
   </div>
 </template>
 

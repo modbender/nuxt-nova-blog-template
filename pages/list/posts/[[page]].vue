@@ -20,6 +20,7 @@
     </nav>
     <hr />
     <PostList :post-list="postList" />
+    <Ad :container="{ class: 'ad-slot' }" code="1" />
   </div>
 </template>
 
