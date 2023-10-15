@@ -136,6 +136,11 @@ export default defineNuxtConfig({
   },
 
   content: {
+    markdown: {
+      remarkPlugins: {
+        "remark-oembed": { syncWidget: true },
+      },
+    },
     highlight: {
       theme: {
         // Default theme (same as single string)

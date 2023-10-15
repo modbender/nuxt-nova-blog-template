@@ -23,6 +23,7 @@
     "nuxt": "3.7.4",
     "nuxt-disqus": "1.0.1",
     "nuxt-icon": "0.5.0",
+    "remark-oembed": "^1.2.2",
     "sass": "1.69.0"
   },
   "resolutions": {
