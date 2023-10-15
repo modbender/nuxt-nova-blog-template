@@ -103,7 +103,7 @@ export default defineNuxtConfig({
     "@nuxtjs/strapi",
     "@nuxtseo/module", // doc https://nuxtseo.com/
     // "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/
-    "@nuxtjs/google-adsense", // source: https://nuxt.com/modules/google-adsense
+    // "@nuxtjs/google-adsense", // source: https://nuxt.com/modules/google-adsense
     "@nuxtjs/color-mode", // doc: https://color-mode.nuxtjs.org/
     "@nuxt/image-edge",
     "@nuxt/content",
@@ -158,12 +158,12 @@ export default defineNuxtConfig({
     ],
   },
 
-  googleAdsense: {
-    // options: https://nuxt.com/modules/google-adsense
-    // id: "ca-pub-123456789",
-    onPageLoad: true,
-    test: true, // remove or set to false when having approved adsense account id
-  },
+  // googleAdsense: {
+  //   // options: https://nuxt.com/modules/google-adsense
+  //   // id: "ca-pub-123456789",
+  //   onPageLoad: true,
+  //   test: true, // remove or set to false when having approved adsense account id
+  // },
 
   sitemap: {
     // manually chunk into multiple sitemaps

@@ -1,5 +1,5 @@
 <template>
-  <div v-bind="container">
+  <!-- <div v-bind="container">
     <template v-if="code === '1'">
       <Adsbygoogle />
     </template>
@@ -9,7 +9,7 @@
     <template v-else-if="code === '3'">
       <Adsbygoogle />
     </template>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
