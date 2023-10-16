@@ -61,7 +61,7 @@
         class="markdown-body"
         :value="post.attributes.content"
       />
-      <FAQ :post="post" />
+      <LazyFAQ :post="post" />
       <template v-if="post.attributes.showAuthor !== false">
         <hr class="mt-5 mb-2" />
         <PostShare :title="post.attributes.title" />
@@ -77,7 +77,7 @@
         <PostAuthorInfo :author="authorData" />
       </template>
       <hr class="mb-5 mt-2" />
-      <RelatedPosts :post="post" />
+      <LazyRelatedPosts :post="post" />
     </div>
     <Ad :container="{ class: 'ad-slot' }" code="1" />
     <div v-if="post.comments !== false" class="container mb-5">
