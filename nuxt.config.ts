@@ -44,6 +44,10 @@ const siteLogoIcons = [
 ];
 
 export default defineNuxtConfig({
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
+    layoutTransition: { name: "layout", mode: "out-in" },
+  },
   runtimeConfig: {
     public: {
       site: {
@@ -100,6 +104,7 @@ export default defineNuxtConfig({
   css: ["@/assets/scss/main.scss"],
 
   modules: [
+    "@formkit/auto-animate/nuxt",
     "@nuxtjs/strapi",
     "@nuxtseo/module", // doc https://nuxtseo.com/
     // "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/

@@ -1,13 +1,15 @@
 <template>
-  <div
-    v-if="!!aboutFeaturedImage?.id"
-    class="featured-container"
-    :style="backgroundStyles"
-  ></div>
-  <div class="container-post mx-auto my-5 px-md-4">
-    <div class="markdown-body">
-      <h1>{{ aboutPage.attributes.title }}</h1>
-      <MDC :value="aboutPage.attributes.content" tag="article" />
+  <div>
+    <div
+      v-if="!!aboutFeaturedImage?.id"
+      class="featured-container"
+      :style="backgroundStyles"
+    ></div>
+    <div class="container-post mx-auto my-5 px-md-4">
+      <div class="markdown-body">
+        <h1>{{ aboutPage.attributes.title }}</h1>
+        <MDC :value="aboutPage.attributes.content" tag="article" />
+      </div>
     </div>
   </div>
 </template>

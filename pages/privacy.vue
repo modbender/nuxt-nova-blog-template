@@ -1,13 +1,15 @@
 <template>
-  <div
-    v-if="!!privacyFeaturedImage?.id"
-    class="featured-container"
-    :style="backgroundStyles"
-  ></div>
-  <div class="container-post mx-auto my-5 px-md-4">
-    <div class="markdown-body">
-      <h1>{{ privacyPage.attributes.title }}</h1>
-      <MDC :value="privacyPage.attributes.content" tag="article" />
+  <div>
+    <div
+      v-if="!!privacyFeaturedImage?.id"
+      class="featured-container"
+      :style="backgroundStyles"
+    ></div>
+    <div class="container-post mx-auto my-5 px-md-4">
+      <div class="markdown-body">
+        <h1>{{ privacyPage.attributes.title }}</h1>
+        <MDC :value="privacyPage.attributes.content" tag="article" />
+      </div>
     </div>
   </div>
 </template>

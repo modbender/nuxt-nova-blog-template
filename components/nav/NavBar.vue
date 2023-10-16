@@ -7,14 +7,9 @@
       <div
         class="d-flex d-md-none flex-row justify-content-center ms-auto me-2"
       >
-        <button
-          class="nav-link p-2"
-          aria-label="Open Search Box"
-          data-bs-target="#searchModal"
-          data-bs-toggle="modal"
-        >
+        <NuxtLink class="nav-link p-2" aria-label="Go To Search" to="/search">
           <Icon width="30" height="30" name="mdi:magnify" class="mb-md-1" />
-        </button>
+        </NuxtLink>
         <button
           class="nav-link p-2"
           @click="toggleColorMode"
@@ -58,14 +53,13 @@
         </ul>
         <ul class="navbar-nav ms-md-auto d-none d-md-flex mb-lg-0">
           <li class="nav-item">
-            <button
-              aria-label="Open Search Box"
-              class="nav-link py-2 px-0 px-lg-2"
-              data-bs-target="#searchModal"
-              data-bs-toggle="modal"
+            <NuxtLink
+              class="nav-link p-2"
+              aria-label="Go To Search"
+              to="/search"
             >
-              <Icon width="25" height="25" name="mdi:magnify" class="mb-md-1" />
-            </button>
+              <Icon width="30" height="30" name="mdi:magnify" class="mb-md-1" />
+            </NuxtLink>
           </li>
           <li class="nav-item">
             <button

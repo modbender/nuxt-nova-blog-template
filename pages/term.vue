@@ -1,13 +1,15 @@
 <template>
-  <div
-    v-if="!!termFeaturedImage?.id"
-    class="featured-container"
-    :style="backgroundStyles"
-  ></div>
-  <div class="container-post mx-auto my-5 px-md-4">
-    <div class="markdown-body">
-      <h1>{{ termPage.attributes.title }}</h1>
-      <MDC :value="termPage.attributes.content" tag="article" />
+  <div>
+    <div
+      v-if="!!termFeaturedImage?.id"
+      class="featured-container"
+      :style="backgroundStyles"
+    ></div>
+    <div class="container-post mx-auto my-5 px-md-4">
+      <div class="markdown-body">
+        <h1>{{ termPage.attributes.title }}</h1>
+        <MDC :value="termPage.attributes.content" tag="article" />
+      </div>
     </div>
   </div>
 </template>

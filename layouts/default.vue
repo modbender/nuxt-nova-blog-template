@@ -1,18 +1,17 @@
 <template>
-  <NavBar />
-  <main>
-    <slot />
-  </main>
-  <LayoutFooter />
-  <NuxtLoadingIndicator />
-  <ScrollUp />
-  <LazyNavSearch :allPosts="allPosts" />
+  <div id="default-layout-container">
+    <NavBar />
+    <main>
+      <slot />
+    </main>
+    <LayoutFooter />
+    <NuxtLoadingIndicator />
+    <ScrollUp />
+  </div>
 </template>
 
 <script setup>
 const config = useRuntimeConfig();
-
-const allPosts = await getAllPosts();
 
 useSchemaOrg([
   defineOrganization({
