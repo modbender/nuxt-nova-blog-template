@@ -1,11 +1,11 @@
 <template>
-  <header class="navbar navbar-expand-lg bg-body-tertiary">
-    <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
       <NuxtLink class="navbar-brand" id="logo" to="/">
         {{ $config.public.site.name }}
       </NuxtLink>
       <div
-        class="d-flex d-md-none flex-row justify-content-center ms-auto me-2"
+        class="d-flex d-lg-none flex-row justify-content-center ms-auto me-2"
       >
         <NuxtLink class="nav-link p-2" aria-label="Go To Search" to="/search">
           <Icon width="30" height="30" name="mdi:magnify" class="mb-md-1" />
@@ -35,23 +35,19 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav">
           <li
             class="nav-item"
+            :class="{ active: $route.path === listPage.link }"
             v-for="listPage in listingPages"
             :key="listPage.name"
           >
-            <NuxtLink
-              class="nav-link"
-              active-class="active"
-              :aria-current="$route.path === listPage.link ? 'page' : null"
-              :to="listPage.link"
-            >
+            <a class="nav-link" :href="listPage.link">
               {{ listPage.name }}
-            </NuxtLink>
+            </a>
           </li>
         </ul>
-        <ul class="navbar-nav ms-md-auto d-none d-md-flex mb-lg-0">
+        <ul class="navbar-nav ms-md-auto d-none d-lg-flex mb-lg-0">
           <li class="nav-item">
             <NuxtLink
               class="nav-link p-2"
@@ -77,8 +73,8 @@
           </li>
         </ul>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
 </template>
 
 <script setup>
