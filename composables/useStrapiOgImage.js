@@ -18,7 +18,7 @@ export default function (title, imageData) {
 
   ogArray.push(originalImage);
 
-  if (Object.keys(imageAttributes.formats).length > 0) {
+  if (Object.keys(imageAttributes.formats || []).length > 0) {
     const thumbnailImageData = imageAttributes.formats.thumbnail;
     const thumbnailImage = {
       url: useStrapiMedia(thumbnailImageData.url),
