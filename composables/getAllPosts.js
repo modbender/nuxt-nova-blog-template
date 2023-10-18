@@ -12,7 +12,7 @@ export default async () => {
           pageSize: 1000,
         },
         populate: ["featuredImage", "tags"],
-        fields: ["title", "slug", "description"],
+        fields: ["title", "slug", "description", "createdAt"],
       })
     );
 

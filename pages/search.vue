@@ -15,9 +15,9 @@
         aria-describedby="Search posts using title name"
       />
     </div>
-    <hr />
     <template v-if="searchText !== '' && searchText.length > 2">
       <template v-if="!!searchResults && searchResults.length > 0">
+        <hr />
         <div class="row">
           <div
             class="col-12 my-2"
