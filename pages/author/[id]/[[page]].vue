@@ -40,7 +40,7 @@
         <h1 class="mt-3">
           <strong>{{ author.username }}</strong>
         </h1>
-        <template v-if="!!Object.keys(author.shareLinks).length > 0">
+        <template v-if="!!Object.keys(author.shareLinks || []).length > 0">
           <hr class="mt-4 mt-2" />
           <div>
             <div class="mb-2">
@@ -115,9 +115,9 @@
               </a>
             </div>
           </div>
+          <hr class="mb-4 mt-2" />
         </template>
       </div>
-      <hr class="mb-4 mt-2" />
       <div class="markdown-body">
         <MDC :value="author.content" tag="article" />
       </div>
