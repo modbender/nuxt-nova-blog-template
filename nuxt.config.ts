@@ -166,6 +166,9 @@ export default defineNuxtConfig({
       process.env.NUXT_PUBLIC_SITE_URL as string,
       process.env.STRAPI_URL as string,
     ],
+    alias: {
+      backend: process.env.STRAPI_URL as string,
+    },
   },
 
   // googleAdsense: {
