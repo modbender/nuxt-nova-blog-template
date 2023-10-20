@@ -86,6 +86,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
+      interval: 500, // Ngrok rate limiting 120 requests per 60 seconds, 500 = 0.5 sec
+      concurrency: 1,
     },
     publicAssets: [
       {
