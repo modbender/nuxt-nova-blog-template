@@ -174,7 +174,7 @@ export default defineNuxtConfig({
       process.env.STRAPI_URL as string,
     ],
     alias: {
-      backend: "http://localhost:8000",
+      backend: process.env.STRAPI_URL as string,
     },
   },
 
