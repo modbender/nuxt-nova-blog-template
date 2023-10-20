@@ -4,7 +4,6 @@
     <NuxtLink
       v-for="relatedPost in relatedPosts.data"
       class="card h-100 mb-3 me-md-auto related-card"
-      :style="relatedPostStyles(relatedPost)"
       :to="`/p/${relatedPost.attributes.slug}`"
       :key="relatedPost.id"
     >
@@ -70,14 +69,4 @@ const { data: relatedPosts } = await useAsyncData(
       populate: ["featuredImage"],
     })
 );
-
-const relatedPostStyles = (relatedPost) => {
-  const currentUrl = !!relatedPost.attributes.featuredImage?.data?.attributes
-    ?.url
-    ? useStrapiMedia(relatedPost.attributes.featuredImage.data.attributes.url)
-    : config.public.featuredImagePlaceholder;
-
-  const imgUrl = img(currentUrl, { height: 100, quality: 60, format: "webp" });
-  return { backgroundImage: `url('${imgUrl}')` };
-};
 </script>

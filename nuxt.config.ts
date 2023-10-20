@@ -106,15 +106,21 @@ export default defineNuxtConfig({
   modules: [
     "@formkit/auto-animate/nuxt",
     "@nuxtjs/strapi",
-    "@nuxtseo/module", // doc https://nuxtseo.com/
-    "@nuxtjs/google-fonts", // doc https://google-fonts.nuxtjs.org/
+    // doc https://nuxtseo.com/
+    "@nuxtseo/module",
+    // doc https://google-fonts.nuxtjs.org/
+    "@nuxtjs/google-fonts",
     // "@nuxtjs/google-adsense", // source: https://nuxt.com/modules/google-adsense
-    "@nuxtjs/color-mode", // doc: https://color-mode.nuxtjs.org/
-    "@nuxt/image-edge",
+    // doc: https://color-mode.nuxtjs.org/
+    "@nuxtjs/color-mode",
     "@nuxt/content",
-    "@vueuse/nuxt", // source: https://vueuse.org/nuxt/README.html
-    "nuxt-disqus", // source: https://github.com/modbender/nuxt-disqus
-    "nuxt-icon", // icons: https://icones.js.org/, doc: https://nuxt.com/modules/icon
+    // source: https://vueuse.org/nuxt/README.html
+    "@vueuse/nuxt",
+    "@nuxt/image",
+    // source: https://github.com/modbender/nuxt-disqus
+    "nuxt-disqus",
+    // icons: https://icones.js.org/, doc: https://nuxt.com/modules/icon
+    "nuxt-icon",
   ],
 
   devtools: {
@@ -130,6 +136,7 @@ export default defineNuxtConfig({
   },
 
   googleFonts: {
+    display: "optional",
     families: {
       Roboto: true,
     },
@@ -161,13 +168,13 @@ export default defineNuxtConfig({
   image: {
     // doc: https://image.nuxtjs.org/
     // You could try format: ["avif", "webp"] for more compression
-    format: ["webp", "jpg"],
+    format: ["webp"],
     domains: [
       process.env.NUXT_PUBLIC_SITE_URL as string,
       process.env.STRAPI_URL as string,
     ],
     alias: {
-      backend: process.env.STRAPI_URL as string,
+      backend: "http://localhost:8000",
     },
   },
 

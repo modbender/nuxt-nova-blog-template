@@ -55,12 +55,9 @@
         <hr class="mb-5 mt-2" />
       </template>
       <hr v-else class="my-5 mt-2" />
-      <MDC
-        id="article"
-        tag="article"
-        class="markdown-body"
-        :value="post.attributes.content"
-      />
+      <article id="article">
+        <MDC class="markdown-body" :value="post.attributes.content" />
+      </article>
       <LazyFAQ :post="post" />
       <template v-if="post.attributes.showAuthor !== false">
         <hr class="mt-5 mb-2" />
@@ -142,14 +139,13 @@ const featuredOgImageData = useStrapiOgImage(
 const authorData = post.attributes.author?.data;
 
 const backgroundStyles = computed(() => {
-  const imgUrl = img(
-    featuredImageUrl ?? config.public.featuredImagePlaceholder,
-    {
-      height: 700,
-      format: "webp",
-      quality: 90,
-    }
-  );
+  if (!featuredImageUrl) return {};
+
+  const imgUrl = img(featuredImageUrl, {
+    height: 700,
+    format: "webp",
+    quality: 90,
+  });
   return { backgroundImage: `url('${imgUrl}')` };
 });
 
