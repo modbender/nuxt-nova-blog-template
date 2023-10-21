@@ -85,8 +85,8 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      concurrency: 1,
-      interval: 0.5 * 1000, // Ngrok rate limiting 120 requests per 60 seconds, 500 = 0.5 sec
+      concurrency: 10,
+      interval: 2 * 1000, // uses setTimeout, milliseconds
       crawlLinks: true,
     },
     publicAssets: [
@@ -100,13 +100,13 @@ export default defineNuxtConfig({
 
   // Required for Netlify deployment
   routeRules: {
-    "/**": { isr: true },
+    "/**": { prerender: true },
   },
 
   css: ["@/assets/scss/main.scss"],
 
   modules: [
-    "@formkit/auto-animate/nuxt",
+    "@formkit/auto-animate/nuxt", // Nothing to do for this
     "@nuxtjs/strapi",
     // doc https://nuxtseo.com/
     "@nuxtseo/module",
