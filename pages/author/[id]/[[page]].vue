@@ -170,6 +170,14 @@ const { data: author } = await useAsyncData(`author-${route.params.id}`, () =>
   })
 );
 
+if (!unref(author) || Object.keys(unref(author)).length === 0) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Post Not Found",
+    fatal: true,
+  });
+}
+
 const { data: authorPosts } = await useAsyncData(
   `author-posts-${route.params.id}-${unref(currentPage)}`,
   () =>

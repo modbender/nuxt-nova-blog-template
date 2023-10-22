@@ -8,7 +8,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   window.dataLayer = window.dataLayer || [];
 
   if (!!gtagId) {
-    console.log("GTag Switched On");
+    console.log("GTag is ON");
     gtag("js", new Date());
     gtag("config", gtagId);
 

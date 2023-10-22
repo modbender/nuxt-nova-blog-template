@@ -120,8 +120,12 @@ const { data: postListData } = await useAsyncData(
 
 const { data: postList } = unref(postListData);
 
-if (postList.length === 0) {
-  throw createError({ statusCode: 404, statusMessage: "Post Not Found" });
+if (postList?.length === 0) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Post Not Found",
+    fatal: true,
+  });
 }
 
 const post = postList[0];

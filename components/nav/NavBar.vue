@@ -38,13 +38,17 @@
         <ul class="navbar-nav">
           <li
             class="nav-item"
-            :class="{ active: $route.path === listPage.link }"
             v-for="listPage in listingPages"
             :key="listPage.name"
           >
-            <a class="nav-link" :href="listPage.link">
+            <NuxtLink
+              class="nav-link"
+              :to="listPage.link"
+              :class="{ active: $route.path === listPage.link }"
+              :aria-current="$route.path === listPage.link ? 'page' : null"
+            >
               {{ listPage.name }}
-            </a>
+            </NuxtLink>
           </li>
         </ul>
         <ul class="navbar-nav ms-md-auto d-none d-lg-flex mb-lg-0">

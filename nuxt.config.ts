@@ -85,8 +85,8 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      concurrency: 10,
-      interval: 2 * 1000, // uses setTimeout, milliseconds
+      concurrency: 6,
+      interval: 2 * 1000, // uses setTimeout, 1000 milliseconds = 1 second
       crawlLinks: true,
     },
     publicAssets: [
@@ -158,11 +158,11 @@ export default defineNuxtConfig({
     highlight: {
       theme: {
         // Default theme (same as single string)
-        default: "light-plus",
+        default: "dark-plus",
+        // Theme used if `html.light`
+        light: "light-plus",
         // Theme used if `html.dark`
         dark: "dark-plus",
-        // Theme used if `html.sepia`
-        sepia: "monokai",
       },
     },
   },

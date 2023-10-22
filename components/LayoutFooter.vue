@@ -22,7 +22,7 @@
           © 2023 {{ $config.public.site.name }}
         </span>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class="ms-3">
+          <li class="ms-3" v-if="$config.public.socialLinks?.youtube">
             <a
               class="text-danger"
               aria-label="Go to Youtube Link"
@@ -32,7 +32,7 @@
               <Icon width="24" height="24" name="mdi:youtube" />
             </a>
           </li>
-          <li class="ms-3">
+          <li class="ms-3" v-if="$config.public.socialLinks?.x">
             <a
               class="text-info"
               aria-label="Go to X Link"
@@ -42,7 +42,7 @@
               <Icon width="24" height="24" name="mdi:twitter" />
             </a>
           </li>
-          <li class="ms-3">
+          <li class="ms-3" v-if="$config.public.socialLinks?.facebook">
             <a
               aria-label="Go to Facebook Link"
               :href="$config.public.socialLinks?.facebook ?? '#'"
@@ -51,7 +51,7 @@
               <Icon width="24" height="24" name="mdi:facebook" />
             </a>
           </li>
-          <li class="ms-3">
+          <li class="ms-3" v-if="$config.public.socialLinks?.instagram">
             <a
               class="text-warning"
               aria-label="Go to Instagram Link"

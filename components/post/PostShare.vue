@@ -25,6 +25,7 @@
               <a
                 class="dropdown-item"
                 :href="`https://twitter.com/share?url=${urlNoQuery}&text=${title}`"
+                target="_blank"
               >
                 <Icon name="mdi:twitter" />
                 Tweet
@@ -34,6 +35,7 @@
               <a
                 class="dropdown-item"
                 :href="`https://www.facebook.com/sharer/sharer.php?u=${urlNoQuery}`"
+                target="_blank"
               >
                 <Icon name="mdi:facebook" />
                 Facebook

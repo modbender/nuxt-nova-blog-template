@@ -51,8 +51,12 @@ const { data: tagListData } = await useAsyncData(
 
 const { data: tagList } = unref(tagListData);
 
-if (tagList.length === 0) {
-  throw createError({ statusCode: 404, statusMessage: "Tag Not Found" });
+if (tagList?.length === 0) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Tag Not Found",
+    fatal: true,
+  });
 }
 
 const tag = tagList[0];
