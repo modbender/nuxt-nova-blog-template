@@ -88,7 +88,9 @@ const ogImageOptions = {
 
 const metaData = {
   title: `${tag.attributes.name} | Tag`,
-  description: tag.attributes.description ?? config.public.site.description,
+  description:
+    tag.attributes.description ??
+    `All articles under tag ${tag.attributes.name}`,
   ogImageAlt: `${tag.attributes.name} Tag`,
   twitterCard: "summary_large_image",
 };

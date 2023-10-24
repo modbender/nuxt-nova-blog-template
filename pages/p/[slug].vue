@@ -175,7 +175,7 @@ const breadcrumbItems = [
 
 const metaData = {
   title: post.attributes.title,
-  description: post.attributes.description ?? config.public.site.description,
+  description: post.attributes.description ?? post.attributes.title,
   twitterCard: "summary_large_image",
 
   articlePublishedTime: post.attributes.createdAt,
