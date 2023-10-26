@@ -75,7 +75,7 @@ export default defineNuxtConfig({
         instagram: process.env.NUXT_PUBLIC_SOCIAL_INSTAGRAM_URL,
       },
 
-      gtagId: "",
+      gtagId: process.env.NUXT_PUBLIC_GOOGLE_TAG_ID,
 
       nuxtNovaControl: {
         postListStyle: process.env.NUXT_PUBLIC_POST_LIST_STYLE, //either 'grid' or 'list',
@@ -156,14 +156,7 @@ export default defineNuxtConfig({
       },
     },
     highlight: {
-      theme: {
-        // Default theme (same as single string)
-        default: "dark-plus",
-        // Theme used if `html.light`
-        light: "light-plus",
-        // Theme used if `html.dark`
-        dark: "dark-plus",
-      },
+      theme: "dracula",
     },
   },
 
