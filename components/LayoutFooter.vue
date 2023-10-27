@@ -7,7 +7,9 @@
             :prefetch="false"
             active-class="active"
             class="nav-link text-body-secondary"
-            :aria-current="$route.path === infoPage.link ? 'page' : null"
+            :aria-current="
+              $route.path.indexOf(infoPage.link) !== -1 ? 'page' : null
+            "
             :to="infoPage.link"
           >
             {{ infoPage.name }}

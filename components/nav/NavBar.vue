@@ -44,8 +44,10 @@
             <NuxtLink
               class="nav-link"
               :to="listPage.link"
-              :class="{ active: $route.path === listPage.link }"
-              :aria-current="$route.path === listPage.link ? 'page' : null"
+              :class="{ active: $route.path.indexOf(listPage.link) !== -1 }"
+              :aria-current="
+                $route.path.indexOf(listPage.link) !== -1 ? 'page' : null
+              "
             >
               {{ listPage.name }}
             </NuxtLink>
