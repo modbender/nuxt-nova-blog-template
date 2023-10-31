@@ -7,11 +7,11 @@
       :to="`/p/${relatedPost.attributes.slug}`"
       :key="relatedPost.id"
     >
-      <div class="card-body p-4">
-        <div class="h5 card-title">
+      <div class="card-body p-4 bg-black">
+        <div class="h5 card-title text-white">
           <strong>{{ relatedPost.attributes.title }}</strong>
         </div>
-        <p class="card-text text-truncate text-body-secondary">
+        <p class="card-text text-truncate text-white-50">
           {{ relatedPost.attributes.description }}
         </p>
       </div>
