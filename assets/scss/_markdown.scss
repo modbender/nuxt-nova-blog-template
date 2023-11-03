@@ -95,6 +95,11 @@
     margin: 5px;
   }
 
+  table {
+    @extend .table;
+    @extend .table-striped-columns;
+  }
+
   .remark-oembed-you-tube iframe {
     @extend .img-fluid;
     aspect-ratio: 16/9;
