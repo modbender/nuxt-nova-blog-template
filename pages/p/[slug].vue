@@ -174,9 +174,22 @@ const breadcrumbItems = [
 ];
 
 const metaData = {
+  ogType: "article",
   title: post.attributes.title,
   description: post.attributes.description ?? post.attributes.title,
   twitterCard: "summary_large_image",
+
+  ...(!!authorData && !!authorData.id
+    ? {
+        articleAuthor: `/author/${authorData.id}`,
+      }
+    : {}),
+
+  ...(!!tags && tags.length > 0
+    ? {
+        articleTag: tags.map((tag) => tag.attributes.name),
+      }
+    : {}),
 
   articlePublishedTime: post.attributes.createdAt,
   articleModifiedTime: post.attributes.updatedAt,

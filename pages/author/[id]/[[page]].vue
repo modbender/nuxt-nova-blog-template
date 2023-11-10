@@ -230,12 +230,15 @@ const imageMetaData =
     : {};
 
 const metaData = {
+  ogType: "profile",
   title: `${unref(author).username} | Author`,
   description:
     unref(author).description ||
     unref(author).content ||
     unref(author).username,
   twitterCard: "summary_large_image",
+
+  profileUsername: unref(author).username,
 
   ...imageMetaData,
 };
